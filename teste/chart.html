@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard com Chart.js</title>
+
+  <!-- Importando Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 300px !important;
+    }
+
+    #atualizarBtn {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #atualizarBtn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>📈 Dashboard de Vendas — Chart.js</h1>
+
+  <div class="dashboard">
+    <div class="card">
+      <h3>1️⃣ Vendas Mensais (Linha)</h3>
+      <canvas id="graficoLinha"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>2️⃣ Produtos Vendidos (Barras)</h3>
+      <canvas id="graficoBarra"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>3️⃣ Participação de Mercado (Pizza)</h3>
+      <canvas id="graficoPizza"></canvas>
+    </div>
+  </div>
+
+  <button id="atualizarBtn">🔄 Atualizar Dados</button>
+
+  <script>
+    // ------------------------------------------
+    // 1. Gráfico de LINHA
+    // ------------------------------------------
+    const ctxLinha = document.getElementById('graficoLinha');
+    const graficoLinha = new Chart(ctxLinha, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        datasets: [{
+          label: 'Vendas (R$ mil)',
+          data: [35, 40, 28, 51, 42, 70, 65, 90, 120, 110, 150, 130],
+          borderColor: '#007bff',
+          backgroundColor: 'rgba(0, 123, 255, 0.2)',
+          tension: 0.3,
+          fill: true,
+          pointRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Evolução das Vendas por Mês',
+            font: { size: 18 }
+          },
+          legend: { display: true }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    // ------------------------------------------
+    // 2. Gráfico de BARRAS
+    // ------------------------------------------
+    const ctxBarra = document.getElementById('graficoBarra');
+    const graficoBarra = new Chart(ctxBarra, {
+      type: 'bar',
+      data: {
+        labels: ['Notebook', 'Celular', 'Tablet', 'Monitor', 'Headset'],
+        datasets: [{
+          label: 'Unidades Vendidas',
+          data: [44, 55, 41, 64, 22],
+          backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6610f2']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Vendas por Produto',
+            font: { size: 18 }
+          }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    // ------------------------------------------
+    // 3. Gráfico de PIZZA
+    // ------------------------------------------
+    const ctxPizza = document.getElementById('graficoPizza');
+    const graficoPizza = new Chart(ctxPizza, {
+      type: 'doughnut',
+      data: {
+        labels: ['Empresa A', 'Empresa B', 'Empresa C', 'Empresa D', 'Empresa E'],
+        datasets: [{
+          data: [45, 25, 15, 10, 5],
+          backgroundColor: ['#007bff', '#ffc107', '#28a745', '#dc3545', '#6610f2']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Participação de Mercado (%)',
+            font: { size: 18 }
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    // ------------------------------------------
+    // 4. Atualizar os dados dinamicamente
+    // ------------------------------------------
+    document.getElementById('atualizarBtn').addEventListener('click', () => {
+      // Função para gerar números aleatórios
+      const aleatorio = (min, max, n) => Array.from({ length: n }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+
+      // Atualiza cada gráfico
+      graficoLinha.data.datasets[0].data = aleatorio(20, 150, 12);
+      graficoBarra.data.datasets[0].data = aleatorio(10, 80, 5);
+      graficoPizza.data.datasets[0].data = aleatorio(5, 40, 5);
+
+      graficoLinha.update();
+      graficoBarra.update();
+      graficoPizza.update();
+    });
+  </script>
+</body>
+</html>
