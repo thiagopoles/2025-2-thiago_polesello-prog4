@@ -1,0 +1,25 @@
+/* layout */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
+}
+
+/* cabeçalho */
+.menu{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a{
+    display: block;
+    padding: 15px 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+menu a:hover
