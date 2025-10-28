@@ -27,7 +27,25 @@ body {
     transition: background 0.3s;
 }
 
+<<<<<<< HEAD
+menu a:hover
+
+
+
+
+#cabecalho {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+=======
 menu a:hover{
     background-color: rgb(243, 235, 235);
 }
 
+>>>>>>> 1d374666edd71b2e0854567e6179931e5c1cb2f0
