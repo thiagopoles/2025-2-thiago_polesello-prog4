@@ -6,6 +6,11 @@
     font-family: Tahoma, sans-serif;
 }
 
+body {
+    height: 100%;
+  }
+  
+
 /* cabeçalho */
 .menu{
     list-style: none;
@@ -22,6 +27,7 @@
     transition: background 0.3s;
 }
 
+<<<<<<< HEAD
 menu a:hover
 
 
@@ -37,3 +43,9 @@ menu a:hover
     width: 100%;
     z-index: 1000;
   }
+=======
+menu a:hover{
+    background-color: rgb(243, 235, 235);
+}
+
+>>>>>>> 1d374666edd71b2e0854567e6179931e5c1cb2f0
