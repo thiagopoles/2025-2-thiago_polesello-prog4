@@ -6,6 +6,11 @@
     font-family: Tahoma, sans-serif;
 }
 
+body {
+    height: 100%;
+  }
+  
+
 /* cabeçalho */
 .menu{
     list-style: none;
@@ -22,4 +27,7 @@
     transition: background 0.3s;
 }
 
-menu a:hover
+menu a:hover{
+    background-color: rgb(243, 235, 235);
+}
+
