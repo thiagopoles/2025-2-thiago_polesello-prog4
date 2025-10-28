@@ -59,6 +59,7 @@ header#site-header {
   height: 64px;
   display: block;
 }
+
 .brand-text h1 {
   font-size: 1.6rem;
   color: #007c2b;
@@ -77,6 +78,7 @@ header#site-header {
   gap: 18px;
   align-items: center;
 }
+
 .main-nav .nav-link {
   text-decoration: none;
   color: #2c2c2c;
