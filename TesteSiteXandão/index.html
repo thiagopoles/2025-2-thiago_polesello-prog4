@@ -34,7 +34,25 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <h2 class="hero-title">Projetos PTQA & MABEL</h2>
+      <h2 class="hero-title">.container {
+  position: relative; /* Estabelece um contexto de posicionamento */
+  display: inline-block; /* Para que o contêiner se ajuste à imagem */
+}
+
+.container img {
+  display: block; /* Remove espaço extra abaixo da imagem */
+  width: 100%; /* Faz a imagem ocupar a largura do contêiner */
+}
+
+.texto-sobreposto {
+  position: absolute; /* Posiciona o texto de forma absoluta */
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta a posição para um alinhamento perfeito */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza o texto dentro da sua própria caixa */
+  width: 100%; /* Garante que o texto ocupe toda a largura do contêiner para centralização */
+}</h2>
       <p class="hero-sub">Trabalho acadêmico desenvolvido por Heitor G., Isabely e Thiago — Técnico em Desenvolvimento de Sistemas</p>
     </div>
   </section>

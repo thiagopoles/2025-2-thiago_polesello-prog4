@@ -1,4 +1,4 @@
-/* layout da página*/
+/* LAYOUT DA PÁGINA */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
   height: 100%;
 }
 
-/* cabeçalho fixo */
+/* CABEÇALHO FIXO */
 header {
   display: flex;
   justify-content: space-between;
@@ -59,22 +59,16 @@ header img {
   z-index: 1000;
 }
 
-/* Index */
+/* INDEX */
 main {
   margin-top: 112px;
   padding: 0;
 }
 
 .imgIndex {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.imgIndex img {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
+  overflow: hidden;
 }
 
 .imgIndex::after {
@@ -84,14 +78,29 @@ main {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* Footer */
-footer {
-    background-color: gray;
-    color: white;
-    text-align: center;
-    padding: 20px;
-
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.container img {
+  height: auto;
+  display: block;
+  width: 100%;
 }
+
+.texto-sobreposto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+/* RODAPÉ */
+footer {
+  background-color: gray;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+} 
