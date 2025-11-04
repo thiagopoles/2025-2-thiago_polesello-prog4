@@ -10,6 +10,34 @@ body {
   height: 100%;
 }
 
+.conteudoForaDoMenu{
+  padding-top: 120px;
+  margin: 30px;
+}
+
+section p{
+  max-width: 900px;      
+  margin: 60px auto;       
+  text-align: justify; 
+  line-height: 1.5; 
+}
+
+section ol{
+  padding: px;
+  max-width: 900px;      
+  margin: 60px auto;       
+  text-align: left; 
+  line-height: 1.5; 
+}
+
+section h2{
+  color: #2c5530;          
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;       
+  font-weight: bold;
+}
+
 /* CABEÇALHO FIXO */
 header {
   display: flex;
@@ -167,7 +195,8 @@ main {
 /* gráficos */
 #chart {
   max-width: 800px;
-  margin: 30px auto;
+  margin: 40px auto;
+  width: 90%;
 }
 
 .quadradoGrafico {
@@ -177,7 +206,10 @@ main {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+  margin: 40px auto;   
+  display: flex;
+  justify-content: center;  
+  align-items: center; 
 }
 
 /* RODAPÉ */
