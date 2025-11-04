@@ -15,7 +15,7 @@ var options = {
     }
 ],
     chart: {
-    height: 350,
+    height: 500,
     type: 'line',
     zoom: {
     enabled: false
