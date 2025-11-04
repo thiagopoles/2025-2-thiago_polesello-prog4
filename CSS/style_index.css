@@ -157,7 +157,11 @@ main {
   height: auto;
 }
 
-
+.containerIMG {
+  background-color: #cccccc;
+  border-radius: 50px;
+  margin: 50px;
+}
 
 /* RODAPÉ */
 footer {
