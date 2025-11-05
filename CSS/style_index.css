@@ -15,30 +15,9 @@ body {
   margin: 30px;
 }
 
-section p{
-  max-width: 900px;      
-  margin: 60px auto;       
-  text-align: justify; 
-  line-height: 1.5; 
-}
 
-section ol{
-  padding: px;
-  max-width: 900px;      
-  margin: 60px auto;       
-  text-align: left; 
-  line-height: 1.5; 
-}
 
-#titulo{
-  color: #2c5530;          
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  text-align: center;       
-  font-weight: bold;
-}
-
-/* CABEÇALHO FIXO */
+/* MENU FIXO */
 header {
   display: flex;
   justify-content: space-between;
@@ -87,7 +66,10 @@ header img {
   z-index: 1000;
 }
 
+
+
 /* INDEX */
+
 main {
   margin-top: 70px;
   padding: 0;
@@ -127,6 +109,7 @@ main {
   text-align: center;
 }
 
+/*quadrados com resumo dos projetos*/
 
 .textoIndex {
   padding: 10px;
@@ -139,19 +122,23 @@ main {
 
 .containerIMG{
   transform: scale(0.9); 
-  margin: 20px auto;
+  margin: 10px auto;
+}
+
+.container-flex .containerIMG{
+  padding: 15px;
+  margin: 15px;
+  height: 600px;
 }
 
 .imgProjetos{
-  
+  width: 30px;
 }
 
 .container .imgProjetos {
   width: 500px !important;
   height: auto;
   display: block;
-  margin: 0 auto;
-  border-radius: 10px;
   margin-top: 0px;
 }
 
@@ -159,6 +146,7 @@ main {
   max-width: 400px;          
   text-align: center; 
   margin-top: 10px;
+  font-size: 18px;
 }
 
 .linkExterno {
@@ -186,7 +174,7 @@ main {
 .container-flex {
   display: flex;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
   justify-content: center;
 }
 
@@ -204,9 +192,9 @@ main {
 }
 
 .containerIMG {
-  background-color: #cccccc;
-  border-radius: 50px;
+  background-color: #f5f5f5;
   margin: 50px;
+  box-shadow: 5px 5px 10px rgb(165, 165, 165);
 }
 
 /* gráficos */
@@ -229,6 +217,19 @@ main {
   align-items: center; 
 }
 
+.quadradoGraficoPtqa {
+  width: 50%;
+  height: 500px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;   
+  display: flex;
+  justify-content: center;  
+  align-items: center; 
+}
+
 /* RODAPÉ */
 footer {
   background-color: gray;
@@ -238,4 +239,30 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+
+/*MABEL E PTQA*/
+
+section p{
+  max-width: 900px;      
+  margin: 60px auto;       
+  text-align: justify; 
+  line-height: 1.5; 
+}
+
+section ol{
+  padding: px;
+  max-width: 900px;      
+  margin: 60px auto;       
+  text-align: left; 
+  line-height: 1.5; 
+}
+
+#titulo{
+  color: #2c5530;          
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;       
+  font-weight: bold;
 }
