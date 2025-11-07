@@ -2,15 +2,15 @@
 
 var options = {
     series: [{
-    name: "Session Duration",
+    name: "Temperatura Externa",
     data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
     },
     {
-    name: "Page Views",
+    name: "Temperatura Interna",
     data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
     },
     {
-    name: 'Total Visits',
+    name: 'Temperatura Do Ninho',
     data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
     }
 ],
@@ -30,7 +30,7 @@ stroke: {
     dashArray: [0, 8, 5]
 },
 title: {
-    text: 'Page Statistics',
+    text: 'Estatísticas Do Ninho',
     align: 'left'
 },
 legend: {
