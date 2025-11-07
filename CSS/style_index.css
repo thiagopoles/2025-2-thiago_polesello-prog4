@@ -117,13 +117,9 @@ main {
 }
 
 .containerIMG {
-<<<<<<< HEAD
-
-=======
   transform: scale(0.9);
   margin: 10px auto;
   height: 480px;
->>>>>>> 5736b63ec6ab1002748e0215ca7b02b8f975ac44
 }
 
 .container-flex .containerIMG {
