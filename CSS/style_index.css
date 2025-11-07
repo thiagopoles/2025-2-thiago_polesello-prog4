@@ -10,12 +10,10 @@ body {
   height: 100%;
 }
 
-.conteudoForaDoMenu{
+.conteudoForaDoMenu {
   padding-top: 120px;
   margin: 30px;
 }
-
-
 
 /* MENU FIXO */
 header {
@@ -66,8 +64,6 @@ header img {
   z-index: 1000;
 }
 
-
-
 /* INDEX */
 
 main {
@@ -82,7 +78,7 @@ main {
 }
 
 .imgIndex::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
@@ -120,18 +116,18 @@ main {
   text-align: center;
 }
 
-.containerIMG{
-  transform: scale(0.9); 
+.containerIMG {
+  transform: scale(0.9);
   margin: 10px auto;
 }
 
-.container-flex .containerIMG{
+.container-flex .containerIMG {
   padding: 15px;
   margin: 15px;
   height: 600px;
 }
 
-.imgProjetos{
+.imgProjetos {
   width: 30px;
 }
 
@@ -142,9 +138,9 @@ main {
   margin-top: 0px;
 }
 
-.resumoProjetos{
-  max-width: 400px;          
-  text-align: center; 
+.resumoProjetos {
+  max-width: 400px;
+  text-align: center;
   margin-top: 10px;
   font-size: 18px;
 }
@@ -211,10 +207,10 @@ main {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 40px auto;   
+  margin: 40px auto;
   display: flex;
-  justify-content: center;  
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .quadradoGraficoPtqa {
@@ -224,10 +220,10 @@ main {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 40px auto;   
+  margin: 40px auto;
   display: flex;
-  justify-content: center;  
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 /* RODAPÉ */
@@ -241,28 +237,27 @@ footer {
   width: 100%;
 }
 
-
 /*MABEL E PTQA*/
 
-section p{
-  max-width: 900px;      
-  margin: 60px auto;       
-  text-align: justify; 
-  line-height: 1.5; 
+section p {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: justify;
+  line-height: 1.5;
 }
 
-section ol{
+section ol {
   padding: px;
-  max-width: 900px;      
-  margin: 60px auto;       
-  text-align: left; 
-  line-height: 1.5; 
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: left;
+  line-height: 1.5;
 }
 
-#titulo{
-  color: #2c5530;          
+#titulo {
+  color: #2c5530;
   font-size: 1.8rem;
   margin-bottom: 15px;
-  text-align: center;       
+  text-align: center;
   font-weight: bold;
 }
