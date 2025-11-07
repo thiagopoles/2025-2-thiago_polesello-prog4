@@ -116,12 +116,6 @@ main {
   text-align: center;
 }
 
-.containerIMG {
-  transform: scale(0.9);
-  margin: 10px auto;
-  height: 480px;
-}
-
 .container-flex .containerIMG {
   padding: 15px;
   margin: 15px;
