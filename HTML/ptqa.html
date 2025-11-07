@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PTQA — IFSC Chapecó</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PTQA — IFSC Chapecó</title>
+    <link rel="stylesheet" href="../CSS/style_index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script defer src="js/main.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="../CSS/style_index.css" />
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script defer src="js/main.js"></script>
-</head>
+  <body>
+    <header id="cabecalho">
+      <figure>
+        <img
+          src="../IMG/IFSC_horizontal_marca2015_PNG (1).png"
+          alt="IFSC Logo"
+        />
+      </figure>
 
-<body>
-  <header id="cabecalho">
-    <figure>
-      <img src="../IMG/IFSC_horizontal_marca2015_PNG (1).png" alt="IFSC Logo" />
-    </figure>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mabel.html">Mabel</a></li>
+          <li><a href="ptqa.html">PTQA</a></li>
+          <li><a href="sobrenos.html">Sobre Nós</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <nav>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="mabel.html">Mabel</a></li>
-        <li><a href="ptqa.html">PTQA</a></li>
-        <li><a href="sobrenos.html">Sobre Nós</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="conteudoForaDoMenu">
-    <section>
+    <main class="conteudoForaDoMenu">
+      <section>
         <h2 id="titulo">Projeto PTQA</h2>
-      </section> 
+      </section>
 
       <section>
         <p>
-         O projeto PTQA (Projeto de Teste Qualitativo do Ar) tem como objetivo testar a qualidade do
-         ar que as pessoas que frequentam o IFSC Campus Chapecó respiram. 
+          O projeto PTQA (Projeto de Teste Qualitativo do Ar) tem como objetivo
+          testar a qualidade do ar que as pessoas que frequentam o IFSC Campus
+          Chapecó respiram.
         </p>
       </section>
 
       <section>
-        <p>As medições são feitas através de um Arduino com os seguintes componentes:</p>
+        <p>
+          As medições são feitas através de um Arduino com os seguintes
+          componentes:
+        </p>
         <ol>
           <li>Placa NodeMCU Esp8266;</li>
           <li>sensor ccs81;</li>
-          <li> sensor BMP280.</li>
+          <li>sensor BMP280.</li>
         </ol>
       </section>
 
       <div class="quadradoGraficoPtqa">
         <div id="chart"></div>
       </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
+    </footer>
 
-  <script src="../JS/ptqa.js"></script>
-</body>
-
+    <script src="../JS/ptqa.js"></script>
+  </body>
 </html>
