@@ -232,8 +232,8 @@ main {
 
 /* RODAPÉ */
 footer {
-  background-color: gray;
-  color: white;
+  background-color: #eeeeee;
+  color: rgb(0, 0, 0);
   text-align: center;
   padding: 20px;
   bottom: 0;
