@@ -117,7 +117,13 @@ main {
 }
 
 .containerIMG {
+<<<<<<< HEAD
 
+=======
+  transform: scale(0.9);
+  margin: 10px auto;
+  height: 480px;
+>>>>>>> 5736b63ec6ab1002748e0215ca7b02b8f975ac44
 }
 
 .container-flex .containerIMG {
@@ -127,7 +133,7 @@ main {
 }
 
 .imgProjetos {
-  width: 30px;
+  width: 100px;
 }
 
 .container .imgProjetos {
@@ -137,11 +143,11 @@ main {
   margin-top: 0px;
 }
 
-.resumoProjetos {
-  max-width: 400px;
+#resumoProjetos {
+  max-width: 450px;
   text-align: center;
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 18.5px;
 }
 
 .linkExterno {
