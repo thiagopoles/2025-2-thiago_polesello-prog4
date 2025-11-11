@@ -79,6 +79,18 @@
       <div class="quadradoGrafico">
         <div id="chart"></div>
       </div>
+
+      <section id="pesquisa" style="padding: 40px;">
+        <h2>Consulta de Leituras do Projeto Mabel</h2>
+        <hr>
+  
+        <!-- Formulário para selecionar as datas -->
+        <form method="GET" action="busca.php">
+          Data inicial: <input type="date" name="dat1" required>
+          Data final: <input type="date" name="dat2" required>
+          <input type="submit" value="Pesquisar">
+        </form>
+      </section>
     </main>
 
     <footer>
