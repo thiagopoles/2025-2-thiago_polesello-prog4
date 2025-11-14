@@ -1,4 +1,4 @@
-/* var options = {
+var options = {
     series: [{
             name: "Temperatura Externa",
             data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
@@ -36,7 +36,7 @@
         dashArray: [0, 0, 0, 0, 0] // Removi os pontilhados, agora todas são linhas contínuas
     },
     title: {
-        text: 'Estatísticas Do Ninho',
+        text: '',
         align: 'left'
     },
     legend: {
@@ -97,95 +97,5 @@
 };
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render(); */
+chart.render(); 
 
-
-/* // Função para obter os dados do servidor (PHP)
-async function getDataFromServer() {
-    try {
-        // Requisição ao PHP
-        const response = await fetch('api/getData.php');  // Caminho correto para o PHP no servidor
-        const data = await response.json();  // Converte a resposta JSON
-
-        // Verifica se os dados foram retornados corretamente
-        if (!data || data.length === 0) {
-            console.error('Nenhum dado encontrado');
-            return;
-        }
-
-        // Monta os dados para o gráfico
-        const chartData = formatChartData(data);
-
-        // Configuração do gráfico
-        const options = {
-            series: [{
-                name: "Temperatura Externa",
-                data: chartData.temperaturaExterna
-            },
-            {
-                name: "Temperatura Interna",
-                data: chartData.temperaturaInterna
-            },
-            {
-                name: 'Umidade Externa',
-                data: chartData.umidadeExterna
-            },
-            {
-                name: 'Umidade Interna',
-                data: chartData.umidadeInterna
-            }],
-            chart: {
-                height: 600,
-                type: 'line',
-                zoom: { enabled: false },
-            },
-            dataLabels: { enabled: false },
-            stroke: {
-                width: [5, 7, 5, 5],
-                curve: 'straight',
-                dashArray: [0, 0, 0, 0], // Linhas sólidas, sem pontilhado
-            },
-            title: { text: 'Estatísticas Do Ninho', align: 'left' },
-            markers: { size: 0, hover: { sizeOffset: 6 } },
-            xaxis: { categories: chartData.dates },  // Data dinâmica
-            tooltip: {
-                y: [
-                    { title: { formatter: function(val) { return val + " (°C)"; }} },
-                    { title: { formatter: function(val) { return val + " (°C)"; }} },
-                    { title: { formatter: function(val) { return val + " %"; }} },
-                    { title: { formatter: function(val) { return val + " %"; }} }
-                ]
-            },
-            grid: { borderColor: '#f1f1f1' },
-        };
-
-        // Criação do gráfico
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-    } catch (error) {
-        console.error('Erro ao carregar dados do servidor: ', error);
-    }
-}
-
-// Função para formatar os dados para o gráfico
-function formatChartData(data) {
-    const dates = [];
-    const temperaturaExterna = [];
-    const temperaturaInterna = [];
-    const umidadeExterna = [];
-    const umidadeInterna = [];
-
-    data.forEach(row => {
-        dates.push(row.data); // Adiciona as datas
-        temperaturaExterna.push(row.temperatura_externa);
-        temperaturaInterna.push(row.temperatura_interna);
-        umidadeExterna.push(row.umidade_externa);
-        umidadeInterna.push(row.umidade_interna);
-    });
-
-    return { dates, temperaturaExterna, temperaturaInterna, umidadeExterna, umidadeInterna };
-}
-
-// Chama a função para obter os dados e gerar o gráfico
-getDataFromServer();
- */
