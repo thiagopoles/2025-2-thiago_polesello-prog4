@@ -1,164 +1,196 @@
--- 1
+SET @inicio = '2025-06-01';
+SET @fim    = '2025-06-30';
+SET @dia    = '2025-06-03';
+
+-- ===========================================
+-- PROJETO MABEL – CONSULTAS (tabela leituramabel)
+-- ===========================================
+
+-- 1. Exibir data e hora dos registros
 SELECT datahora
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 2
+-- 2. Exibir temperaturas internas (ti)
 SELECT datahora, ti
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 3
+-- 3. Exibir temperaturas externas (te)
 SELECT datahora, te
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 4
+-- 4. Exibir umidades internas (hi)
 SELECT datahora, hi
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 5
+-- 5. Exibir umidades externas (he)
 SELECT datahora, he
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 6
+-- 6. Exibir temperatura do ninho (ninho)
 SELECT datahora, ninho
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 7
+-- 7. Exibir ti, te, hi, he de um dia específico
 SELECT datahora, ti, te, hi, he
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE DATE(datahora) = '2025-06-03';
+FROM leituramabel
+WHERE DATE(datahora) = @dia;
 
--- 8
-SELECT AVG(ti) AS temp_interna_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
 
--- 9
-SELECT AVG(te) AS temp_externa_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+-- ===========================================
+-- PROJETO MABEL – ESTATÍSTICAS
+-- ===========================================
 
--- 10
-SELECT AVG(hi) AS umidade_interna_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+-- 1. Temperatura interna média
+SELECT AVG(ti) AS media_ti
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 11
-SELECT AVG(he) AS umidade_externa_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+-- 2. Temperatura externa média
+SELECT AVG(te) AS media_te
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 12
-SELECT MAX(ninho) AS ninho_max
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+-- 3. Umidade interna média
+SELECT AVG(hi) AS media_hi
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 13
-SELECT MIN(ninho) AS ninho_min
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+-- 4. Umidade externa média
+SELECT AVG(he) AS media_he
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 14
+-- 5. Máxima temperatura do ninho
+SELECT MAX(ninho) AS max_ninho
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
+
+-- 6. Mínima temperatura do ninho
+SELECT MIN(ninho) AS min_ninho
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
+
+-- 7. Diferença média entre temperatura interna e externa
 SELECT AVG(ti - te) AS diferenca_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim;
 
--- 15
-SELECT DATE(datahora) AS dia, AVG(ti) AS media_temp_interna
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30'
+-- 8. Média diária da temperatura interna
+SELECT DATE(datahora) AS dia, AVG(ti) AS media_ti
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim
 GROUP BY DATE(datahora)
 ORDER BY dia;
 
--- 16
-SELECT DATE(datahora) AS dia, AVG(hi) AS media_umidade_interna
-FROM mabel_ptqa_heitor_isabely_thiago.leituramabel
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30'
+-- 9. Média diária da umidade interna
+SELECT DATE(datahora) AS dia, AVG(hi) AS media_hi
+FROM leituramabel
+WHERE datahora BETWEEN @inicio AND @fim
 GROUP BY DATE(datahora)
 ORDER BY dia;
 
--- 17
-SELECT datahora, temperatura
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30'
-ORDER BY datahora ASC;
 
--- 18
-SELECT *
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE AQI >= 4 AND datahora BETWEEN '2025-06-01' AND '2025-06-30';
 
--- 19
+-- ===========================================
+-- PROJETO PTQA – CONSULTAS (tabela leituraptqa)
+-- ===========================================
+
+-- 1. Exibir data, hora e temperatura, ordenado por data/hora
+SELECT dataleitura, horaleitura, temperatura
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+ORDER BY dataleitura ASC, horaleitura ASC;
+
+-- 2. Registros com baixa qualidade do ar (AQI >= 4)
 SELECT *
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE umidade > 70 AND datahora BETWEEN '2025-06-01' AND '2025-06-30'
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+  AND aqi >= 4;
+
+-- 3. Registros com umidade > 70%, ordenado desc
+SELECT *
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+  AND umidade > 70
 ORDER BY umidade DESC;
 
--- 20
+-- 4. CO₂ acima de 1000 ppm (eco2)
 SELECT *
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE co2 > 1000 AND datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+  AND eco2 > 1000;
 
--- 21
+-- 5. Pressão atmosférica < 1000 hPa
 SELECT *
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE pressao < 1000 AND datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+  AND pressao < 1000;
 
--- 22
+-- 6. Gases voláteis (tvoc) > 200 ppb
 SELECT *
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE gases_volateis > 200 AND datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+  AND tvoc > 200;
 
--- 23
-SELECT AVG(temperatura) AS temperatura_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
 
--- 24
-SELECT DATE(datahora) AS dia, AVG(umidade) AS umidade_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30'
-GROUP BY DATE(datahora);
+-- ===========================================
+-- PROJETO PTQA – ESTATÍSTICAS
+-- ===========================================
 
--- 25
-SELECT MAX(co2) AS max_co2
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+-- 1. Temperatura média no período
+SELECT AVG(temperatura) AS media_temperatura
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim;
 
--- 26
-SELECT DATE(datahora) AS dia, MIN(pressao) AS pressao_minima
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30'
-GROUP BY DATE(datahora);
+-- 2. Umidade média por dia
+SELECT dataleitura AS dia, AVG(umidade) AS umidade_media
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+GROUP BY dataleitura
+ORDER BY dia;
 
--- 27
+-- 3. Máxima concentração de CO₂
+SELECT MAX(eco2) AS max_co2
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim;
+
+-- 4. Mínima pressão por dia
+SELECT dataleitura AS dia, MIN(pressao) AS pressao_minima
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+GROUP BY dataleitura
+ORDER BY dia;
+
+-- 5. Registros com ótima qualidade do ar (AQI = 1)
 SELECT *
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE AQI = 1 AND datahora BETWEEN '2025-06-01' AND '2025-06-30';
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+  AND aqi = 1;
 
--- 28
-SELECT 
-  MAX(temperatura) AS temp_max, 
-  MIN(temperatura) AS temp_min, 
-  AVG(temperatura) AS temp_media
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30';
+-- 6. Temp máx, mín e média
+SELECT
+    MAX(temperatura) AS temp_max,
+    MIN(temperatura) AS temp_min,
+    AVG(temperatura) AS temp_media
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim;
 
--- 29
-SELECT AQI, AVG(gases_volateis) AS media_gases_volateis
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE datahora BETWEEN '2025-06-01' AND '2025-06-30'
-GROUP BY AQI;
+-- 7. Nível médio de gases voláteis agrupado por AQI
+SELECT aqi, AVG(tvoc) AS media_tvoc
+FROM leituraptqa
+WHERE dataleitura BETWEEN @inicio AND @fim
+GROUP BY aqi;
 
--- 30
-SELECT DATE(datahora) AS dia, AVG(co2) AS media_co2
-FROM mabel_ptqa_heitor_isabely_thiago.leituraptqa
-WHERE MONTH(datahora) = 6
-GROUP BY DATE(datahora)
+-- 8. Top 5 dias com maior média de CO₂ no mês
+SELECT dataleitura AS dia, AVG(eco2) AS media_co2
+FROM leituraptqa
+WHERE MONTH(dataleitura) = MONTH(@inicio)
+GROUP BY dataleitura
 ORDER BY media_co2 DESC
 LIMIT 5;
