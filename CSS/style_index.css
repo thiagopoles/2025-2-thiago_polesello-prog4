@@ -1,3 +1,4 @@
+/* ----------------------------------------------------------------------------------------------------- */
 /* LAYOUT DA PÁGINA */
 * {
   margin: 0;
@@ -64,8 +65,13 @@ header img {
   z-index: 1000;
 }
 
-/* INDEX */
+hr {
+  margin: 30px;
+}
 
+/* ----------------------------------------------------------------------------------------------------- */
+
+/* INDEX */
 main {
   margin-top: 70px;
   padding: 0;
@@ -78,7 +84,7 @@ main {
 }
 
 .imgIndex::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
@@ -105,8 +111,9 @@ main {
   text-align: center;
 }
 
-/*quadrados com resumo dos projetos*/
+/* ----------------------------------------------------------------------------------------------------- */
 
+/*quadrados com resumo dos projetos*/
 .textoIndex {
   padding: 10px;
   margin: 5px;
@@ -195,49 +202,21 @@ main {
   box-shadow: 5px 5px 10px gainsboro;
 }
 
-/* gráficos */
-#chart {
-  max-width: 800px;
-  margin: 40px auto;
-  width: 90%;
-}
-
-.quadradoGrafico {
-  width: 50%;
-  height: 500px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 40px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.quadradoGraficoPtqa {
-  width: 50%;
-  height: 500px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 40px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ----------------------------------------------------------------------------------------------------- */
 
 /* RODAPÉ */
 footer {
-  background-color: #eeeeee;
-  color: rgb(0, 0, 0);
+  background-color: white;
+  color: black;
   text-align: center;
   padding: 20px;
   bottom: 0;
   left: 0;
   width: 100%;
+  box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* ----------------------------------------------------------------------------------------------------- */
 
 /*MABEL E PTQA*/
 section p {
@@ -285,7 +264,7 @@ section ol {
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  width: 440px; 
+  width: 440px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -302,7 +281,7 @@ section ol {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
-  border: none; 
+  border: none;
 }
 
 /* Texto */
@@ -322,4 +301,37 @@ section ol {
   font-size: 1rem;
   color: #555;
   margin-bottom: 25px;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+/* GRÁFICOS */
+#chart {
+  width: 95%;
+  max-width: 1200px; /* mantém a largura grande */
+  height: 500px; /* aumenta a altura → fica mais quadrado */
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.titulo-grafico {
+  font-size: 3rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  #chart {
+    height: 350px;
+  }
 }
