@@ -51,30 +51,28 @@
         </ol>
       </section>
 
-      <form>
-        Data inicial: <input type="date" id="dataInicial" required>
-        Data final: <input type="date" id="dataFinal" required>
-        <input type="submit" value="Pesquisar" id="botaoData">
-      </form>
-
       <p id="pErro"></p>
 
-      <canvas id="graficoPTQA">
-      </canvas>
-
-      <!-- <hr />
       <h1 class="titulo-grafico">-Estatísticas da Qualidade do AR-</h1>
-      <div class="quadradoGrafico">
-        <div id="chart"></div>
-      </div> -->
+
+      <form>
+        Data inicial:
+        <input type="date" id="dataInicial" required />
+        Data final:
+        <input type="date" id="dataFinal" required />
+        <input type="submit" value="Pesquisar" id="botaoData" />
+      </form>
+
+      <section class="quadradoGrafico">
+        <canvas id="graficoPTQA"></canvas>
+      </section>
     </main>
 
     <footer>
       <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../JS/graficoPTQA.js"></script>
-
   </body>
 </html>
