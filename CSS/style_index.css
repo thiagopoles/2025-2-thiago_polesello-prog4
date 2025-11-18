@@ -235,11 +235,14 @@ section ol {
 }
 
 #titulo {
+  font-size: 2rem;
   color: #2c5530;
-  font-size: 1.8rem;
-  margin-bottom: 40px;
   text-align: center;
+  margin-bottom: 40px;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* SOBRE NÓS */
@@ -253,7 +256,7 @@ section ol {
   justify-content: center;
   flex-wrap: wrap; /* quebra linha em telas menores */
   gap: 40px;
-  padding: 50px;
+  padding: 20px;
   background-color: #f5f5f5; /* cor de fundo suave */
   border-radius: 20px;
   margin-top: 20px;
@@ -264,7 +267,7 @@ section ol {
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  width: 440px;
+  width: 420px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -320,10 +323,10 @@ section ol {
 }
 
 .titulo-grafico {
-  font-size: 3rem;
-  color: #333;
+  font-size: 2rem;
+  color: #2c5530;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
