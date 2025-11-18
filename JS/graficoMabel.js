@@ -1,4 +1,4 @@
-fetch("dados_grafico.php")
+fetch("dadosGrafico.php")
     .then(response => response.json())
     .then(data => {
 
