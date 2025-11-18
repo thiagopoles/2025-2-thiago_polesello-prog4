@@ -1,4 +1,4 @@
-/* var series = {
+var series = {
   monthDataSeries1: {
     prices: [8107.85, 8128.0, 8122.9, 8165.5, 8340.7, 8423.7, 8423.5, 8514.3, 8481.85, 8487.7],
     dates: [
@@ -56,53 +56,4 @@ var options = {
     };
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render(); */
-
-    function renderGraph(data_inicio, data_fim) {
-        fetch(`getData.php?data_inicio=${data_inicio}&data_fim=${data_fim}`)
-        .then(response => response.json())
-        .then(data => {
-            // Definindo a estrutura do gráfico com os dados
-            var options = {
-                series: [{
-                    name: "Temperatura",
-                    data: data.temperaturas // Dados de temperatura
-                }, 
-                {
-                    name: "Umidade",
-                    data: data.umidades // Dados de umidade
-                }],
-                chart: {
-                    type: 'line',
-                    height: 500 // Tamanho do gráfico
-                },
-                stroke: {
-                    width: 3, // espessura da linha
-                    curve: 'smooth' // Curva suave para as linhas
-                },
-                title: {
-                    text: 'Temperatura e Umidade', // Título do gráfico
-                    align: 'left'
-                },
-                xaxis: {
-                    categories: data.datas, // Datas do gráfico
-                },
-                yaxis: {
-                    title: {
-                        text: 'Valores' // Rótulo do eixo Y
-                    }
-                },
-                grid: {
-                    borderColor: '#f1f1f1'
-                }
-            };
-    
-            // Criando o gráfico
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
-        })
-        .catch(err => console.error("Erro ao carregar dados:", err));
-    }
-    
-    // Exemplo de uso: Definindo um intervalo de datas
-    renderGraph('2023-01-01', '2023-01-31');
+    chart.render(); 
