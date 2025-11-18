@@ -1,45 +1,101 @@
-fetch("dadosGrafico.php")
-    .then(response => response.json())
-    .then(data => {
-
-        var options = {
-            series: [
-                {
-                    name: "Temperatura Externa",
-                    data: data.te
-                },
-                {
-                    name: "Temperatura Interna",
-                    data: data.ti
-                },
-                {
-                    name: "Temperatura Do Ninho",
-                    data: data.ninho
-                },
-                {
-                    name: "Umidade Externa",
-                    data: data.he
-                },
-                {
-                    name: "Umidade Interna",
-                    data: data.hi
+var options = {
+    series: [{
+            name: "Temperatura Externa",
+            data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+        },
+        {
+            name: "Temperatura Interna",
+            data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+        },
+        {
+            name: 'Temperatura Do Ninho',
+            data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+        },
+        {
+            name: 'Umidade Externa',
+            data: [45, 42, 50, 55, 48, 50, 53, 60, 65, 62, 60, 58] // Dados de exemplo para a umidade externa
+        },
+        {
+            name: 'Umidade Interna',
+            data: [40, 38, 45, 50, 47, 44, 48, 52, 55, 50, 49, 46] // Dados de exemplo para a umidade interna
+        }
+    ],
+    chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+            enabled: false
+        },
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        width: [5, 7, 5, 5, 5], // Ajustei para todas as linhas
+        curve: 'straight', // Linha reta sem curvatura
+        dashArray: [0, 0, 0, 0, 0] // Removi os pontilhados, agora todas são linhas contínuas
+    },
+    title: {
+        text: '',
+        align: 'left'
+    },
+    legend: {
+        tooltipHoverFormatter: function(val, opts) {
+            return val + ' - <strong>' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + '</strong>';
+        }
+    },
+    markers: {
+        size: 0,
+        hover: {
+            sizeOffset: 6
+        }
+    },
+    xaxis: {
+        categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan', '10 Jan', '11 Jan', '12 Jan']
+    },
+    tooltip: {
+        y: [{
+                title: {
+                    formatter: function(val) {
+                        return val + " (mins)";
+                    }
                 }
-            ],
-            chart: {
-                height: 350,
-                type: 'line',
-                zoom: { enabled: false }
             },
-            dataLabels: { enabled: false },
-            stroke: {
-                width: [5,7,5,5,5],
-                curve: 'straight'
+            {
+                title: {
+                    formatter: function(val) {
+                        return val + " per session";
+                    }
+                }
             },
-            xaxis: {
-                categories: data.labels
+            {
+                title: {
+                    formatter: function(val) {
+                        return val;
+                    }
+                }
+            },
+            {
+                title: {
+                    formatter: function(val) {
+                        return val + " %"; // Para umidade
+                    }
+                }
+            },
+            {
+                title: {
+                    formatter: function(val) {
+                        return val + " %"; // Para umidade
+                    }
+                }
             }
-        };
+        ]
+    },
+    grid: {
+        borderColor: '#f1f1f1',
+    }
+};
 
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-    });
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render(); 
+
