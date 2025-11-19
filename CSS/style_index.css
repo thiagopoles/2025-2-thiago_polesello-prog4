@@ -13,20 +13,22 @@ body {
 
 .conteudoForaDoMenu {
   padding-top: 120px;
-  margin: 30px;
+  margin: 10px;
 }
 
-/* MENU FIXO */
+
+/* ----------------------------------------------------------------------------------------------------- */
+/* MENU */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 5px 33px;
   background-color: white;
 }
 
 header img {
-  height: 68px;
+  height: 50px;
   width: auto;
   object-fit: contain;
   margin-right: 20px;
@@ -42,7 +44,7 @@ header img {
 
 .menu a {
   display: block;
-  padding: 15px 20px;
+  padding: 8px 15px;
   color: black;
   text-decoration: none;
   font-weight: 500;
@@ -56,7 +58,7 @@ header img {
 
 #cabecalho {
   background-color: white;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
@@ -69,8 +71,8 @@ hr {
   margin: 30px;
 }
 
-/* ----------------------------------------------------------------------------------------------------- */
 
+/* ----------------------------------------------------------------------------------------------------- */
 /* INDEX */
 main {
   margin-top: 70px;
@@ -111,8 +113,8 @@ main {
   text-align: center;
 }
 
-/* ----------------------------------------------------------------------------------------------------- */
 
+/* ----------------------------------------------------------------------------------------------------- */
 /*quadrados com resumo dos projetos*/
 .textoIndex {
   padding: 10px;
@@ -124,9 +126,9 @@ main {
 }
 
 .container-flex .containerIMG {
-  padding: 15px;
+  padding: 10px;
   margin: 15px;
-  height: 600px;
+  height: 550px;
 }
 
 .imgProjetos {
@@ -134,7 +136,7 @@ main {
 }
 
 .container .imgProjetos {
-  width: 500px !important;
+  width: 450px !important;
   height: auto;
   display: block;
   margin-top: 0px;
@@ -150,11 +152,9 @@ main {
 .linkExterno {
   text-decoration: none;
   padding: 4px 6px;
-  border-radius: 6px;
   transition: all 0.3s ease;
   color: #2c5530;
   display: inline-block;
-  border: 1px solid #ddd;
   font-weight: 500;
 }
 
@@ -172,7 +172,7 @@ main {
 .container-flex {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 100px;
   justify-content: center;
 }
 
@@ -195,15 +195,14 @@ main {
   margin-top: 30px;
   margin-bottom: 30px;
   flex-wrap: wrap; /* quebra linha em telas menores */
-  gap: 40px;
-  padding: 30px;
+  gap: 60px;
+  padding: 20px;
   background-color: white; /* cor de fundo suave */
-  border-radius: 20px;
   box-shadow: 5px 5px 10px gainsboro;
 }
 
-/* ----------------------------------------------------------------------------------------------------- */
 
+/* ----------------------------------------------------------------------------------------------------- */
 /* RODAPÉ */
 footer {
   background-color: white;
@@ -314,11 +313,11 @@ section ol {
 
 /* GRÁFICOS */
 #chart {
-  width: 95%;
-  max-width: 1200px; /* mantém a largura grande */
-  height: 500px; /* aumenta a altura → fica mais quadrado */
-  margin: 30px auto;
-  padding: 30px;
+  width: 60%;
+  max-width: 600px; /* mantém a largura grande */
+  height: 200px; /* aumenta a altura → fica mais quadrado */
+  margin: 20px auto;
+  padding: 10px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   background: #fff;
@@ -327,7 +326,7 @@ section ol {
 }
 
 .titulo-grafico {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #2c5530;
   text-align: center;
   margin-bottom: 40px;
@@ -337,8 +336,8 @@ section ol {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 650px) {
   #chart {
-    height: 350px;
+    height: 250px;
   }
 }
