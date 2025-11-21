@@ -51,19 +51,49 @@
         </ol>
       </section>
 
-      <hr>
+      <hr />
 
       <p id="pErro"></p>
 
-      <h1 class="titulo-grafico">-Estatísticas da Qualidade do AR-</h1>
+      <section>
+        <h1 class="titulo-grafico">-Estatísticas da Qualidade do AR-</h1>
 
-      <form>
-        Data inicial:
-        <input type="date" id="dataInicial" required />
-        Data final:
-        <input type="date" id="dataFinal" required />
-        <input type="submit" value="Pesquisar" id="botaoData" />
-      </form>
+        <div class="container-estatisticas">
+          <div class="menu-graficos">
+            <h3>Tipo de Gráfico</h3>
+
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="linha" checked />
+              Gráfico de Linha
+            </label>
+
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="barra" />
+              Gráfico de Barra
+            </label>
+
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="pizza" />
+              Gráfico de Pizza
+            </label>
+
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="area" />
+              Gráfico de Área
+            </label>
+          </div>
+
+          <form class="form-busca">
+            Data inicial:
+            <input type="date" id="dataInicial" required />
+
+            Data final:
+            <input type="date" id="dataFinal" required />
+
+            <input type="submit" value="Pesquisar" id="botaoData" />
+          </form>
+        </div>
+      </section>
 
       <section class="quadradoGrafico">
         <canvas id="graficoPTQA"></canvas>

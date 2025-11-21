@@ -340,66 +340,98 @@ section ol {
 
 /* ----------------------------------------------------------------------------------------------------- */
 
-/* BOTÃO BUSCA */
-/* Estilos gerais para o formulário */
-form {
+/* --- CONTAINER FLEX CENTRALIZADO --- */
+.container-estatisticas {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* MENU DE GRÁFICOS */
+.menu-graficos {
+  width: 500px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-graficos h3 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.opcao-grafico {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.opcao-grafico:hover {
+  background-color: #e8f5e9;
+  transform: scale(1.03);
+}
+
+.opcao-grafico input[type='radio'] {
+  margin-right: 10px;
+  accent-color: #4caf50;
+}
+
+/* --- FORMULÁRIO SEPARADO --- */
+form.form-busca {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin: 0 auto;
-  width: 300px;
+  width: 500px;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para os campos de data */
-input[type='date'] {
-  padding: 10px;
+form.form-busca input[type='date'] {
+  padding: 14px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 16px;
   background-color: #f9f9f9;
-  width: 100%;
-  transition: border-color 0.3s ease;
+  font-size: 16px;
 }
 
-/* Estilo de foco para os campos de data */
-input[type='date']:focus {
-  border-color: #4caf50; /* Cor verde para foco */
-  background-color: #fff; /* Fundo branco quando focado */
-}
-
-/* Estilo para o botão de pesquisa */
-input[type='submit'] {
-  padding: 12px 20px;
-  background-color: #4caf50; /* Cor de fundo verde */
+form.form-busca input[type='submit'] {
+  padding: 9px;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  width: 100%; /* Faz o botão ocupar toda a largura */
+  transition: 0.3s ease;
 }
 
-/* Efeito de hover no botão */
-input[type='submit']:hover {
-  background-color: #45a049; /* Cor mais escura no hover */
-  transform: scale(1.05); /* Aumenta levemente o botão */
+form.form-busca input[type='submit']:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
 }
 
-/* Efeito de foco no botão */
-input[type='submit']:focus {
-  outline: none;
-  border: 2px solid #333; /* Borda quando o botão recebe o foco */
-}
+/* RESPONSIVIDADE */
+@media (max-width: 800px) {
+  .container-estatisticas {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Responsividade: Ajusta a largura do formulário em telas menores */
-@media (max-width: 400px) {
-  form {
-    width: 100%;
-    padding: 15px;
+  .menu-graficos,
+  form.form-busca {
+    width: 90%;
   }
 }
