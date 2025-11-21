@@ -23,7 +23,7 @@ function chamarBackend(event) {
     // limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaMabelTI.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaMabel/temperaturaInternaTI.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
 
     console.log("URL chamada:", url);
 
@@ -40,7 +40,7 @@ function chamarBackend(event) {
                 const valores = data.map(item => item.temp_interna);
 
 
-                const ctx = document.getElementById('graficoMabelTI').getContext('2d');
+                const ctx = document.getElementById('temperaturaInternaTI').getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {

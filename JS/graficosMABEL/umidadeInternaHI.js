@@ -23,7 +23,7 @@ function chamarBackend(event) {
     // limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaMabel/temperaturaExternaTE.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaMabel/umidadeInternaHI.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
 
     console.log("URL chamada:", url);
 
@@ -37,17 +37,17 @@ function chamarBackend(event) {
 
             if (data.length > 0) {
                 const labels = data.map(item => item.dataleitura);
-                const valores = data.map(item => item.temp_externa);
+                const valores = data.map(item => item.umid_interna);
 
 
-                const ctx = document.getElementById('temperaturaExternaTE').getContext('2d');
+                const ctx = document.getElementById('umidadeInternaHI').getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
                             data: valores,
-                            label: 'Temperatura Externa (He)',
+                            label: 'Umidade Interna (HI)',
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1
