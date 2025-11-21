@@ -308,17 +308,22 @@ section ol {
 /* ----------------------------------------------------------------------------------------------------- */
 
 /* GRÁFICOS */
-#chart {
-  width: 60%;
-  max-width: 600px; /* mantém a largura grande */
-  height: 200px; /* aumenta a altura → fica mais quadrado */
-  margin: 20px auto;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  display: flex;
-  align-items: center;
+/* Estilo para o container do gráfico */
+#graficoPTQACO2 {
+  width: 80%; /* Faz o gráfico ficar 80% da largura do seu container */
+  max-width: 800px; /* Limita a largura máxima */
+  height: 400px; /* Ajusta a altura do gráfico */
+  background-color: #f4f4f9; /* Cor de fundo suave para destacar o gráfico */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao redor do gráfico */
+  margin: 20px auto; /* Centraliza o gráfico na página */
+  padding: 15px; /* Adiciona um pequeno preenchimento ao redor do gráfico */
+}
+
+/* Estilo para o canvas dentro do gráfico */
+#graficoPTQACO2 {
+  display: block; /* Garante que o gráfico ocupe todo o espaço dentro do seu container */
+  margin: 0 auto; /* Centraliza o gráfico dentro do seu container */
 }
 
 .titulo-grafico {
