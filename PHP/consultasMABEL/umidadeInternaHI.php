@@ -13,10 +13,11 @@ if (!$dataInicial || !$dataFinal) {
     exit;
 }
 
-$sql = "SELECT *
-        FROM leituraptqa
-        WHERE dataleitura BETWEEN @inicio AND @fim
-        AND aqi >= 4";
+$sql = "SELECT DATE(datahora) AS dataleitura, ROUND(AVG(hi),2) AS umid_interna
+        FROM leituramabel
+        WHERE DATE(datahora) BETWEEN :dataInicial AND :dataFinal
+        GROUP BY DATE(datahora)
+        ORDER BY DATE(datahora) ASC";
 
 $stmt = $conecta->prepare($sql);
 $stmt->execute([

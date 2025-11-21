@@ -13,8 +13,7 @@ if (!$dataInicial || !$dataFinal) {
     exit;
 }
 
-$sql = "SELECT DATE(datahora) AS dataleitura,
-        ROUND(AVG(hi),2) AS temp_interna
+$sql = "SELECT DATE(datahora) AS dataleitura, ROUND(AVG(ti),2) AS temp_interna
         FROM leituramabel
         WHERE DATE(datahora) BETWEEN :dataInicial AND :dataFinal
         GROUP BY DATE(datahora)
