@@ -8,6 +8,7 @@ function chamarBackend(event) {
 
     let valorDataInicial = dataInicial.value;
     let valorDataFinal = dataFinal.value;
+    let tipoGrafico = document.querySelector('input[name="tipoGrafico"]:checked').value; // Obtém o tipo de gráfico selecionado
 
     // --- VALIDAÇÕES ---
     if (!valorDataInicial || !valorDataFinal) {
@@ -20,10 +21,11 @@ function chamarBackend(event) {
         return;
     }
 
-    // limpa erro se estiver tudo OK
+    // Limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaCO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
+    // Criação da URL com as datas e o tipo de gráfico
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/graficosPTQA/consultaCO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("URL chamada:", url);
 
@@ -41,7 +43,7 @@ function chamarBackend(event) {
 
                 const ctx = document.getElementById('graficoPTQACO2').getContext('2d');
                 const myChart = new Chart(ctx, {
-                    type: 'bar',
+                    type: tipoGrafico, // Usando o tipo de gráfico selecionado
                     data: {
                         labels: labels,
                         datasets: [{
@@ -63,7 +65,7 @@ function chamarBackend(event) {
 
             } else {
                 console.log("Nenhum dado encontrado.");
-                paragrafoErroGrafico.innerText = "Nenhum dado encontrado."
+                paragrafoErroGrafico.innerText = "Nenhum dado encontrado.";
             }
         })
         .catch(error => {
@@ -71,4 +73,4 @@ function chamarBackend(event) {
         });
 }
 
-botaoData.addEventListener("click", chamarBackend); 
+botaoData.addEventListener("click", chamarBackend);
