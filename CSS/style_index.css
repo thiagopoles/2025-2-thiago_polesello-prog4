@@ -340,7 +340,7 @@ section ol {
 
 /* ----------------------------------------------------------------------------------------------------- */
 
-/* --- CONTAINER FLEX CENTRALIZADO --- */
+/* Container do formulário e do menu de gráficos */
 .container-estatisticas {
   display: flex;
   justify-content: center;
@@ -350,9 +350,9 @@ section ol {
   width: 100%;
 }
 
-/* MENU DE GRÁFICOS */
+/* Menu de seleção do tipo de gráfico */
 .menu-graficos {
-  width: 500px;
+  width: 450px;
   padding: 20px;
   background: #fff;
   border-radius: 10px;
@@ -387,28 +387,37 @@ section ol {
   accent-color: #4caf50;
 }
 
-/* --- FORMULÁRIO SEPARADO --- */
-form.form-busca {
+/* Formulário de datas */
+.form-busca {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 500px;
+  gap: 9.5px;
+  width: 450px;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-form.form-busca input[type='date'] {
-  padding: 14px;
+/* Inputs de data */
+input[type='date'] {
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
   font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease;
 }
 
-form.form-busca input[type='submit'] {
-  padding: 9px;
+input[type='date']:focus {
+  border-color: #4caf50;
+  background-color: #fff;
+}
+
+/* Botão de pesquisa */
+button#botaoPesquisa {
+  padding: 16px;
   background-color: #4caf50;
   color: white;
   border: none;
@@ -416,22 +425,17 @@ form.form-busca input[type='submit'] {
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s ease;
+  width: 100%;
 }
 
-form.form-busca input[type='submit']:hover {
+button#botaoPesquisa:hover {
   background-color: #45a049;
   transform: scale(1.05);
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 800px) {
-  .container-estatisticas {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .menu-graficos,
-  form.form-busca {
-    width: 90%;
-  }
+/* Mensagem de erro */
+#pErro {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
 }

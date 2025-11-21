@@ -53,10 +53,8 @@
 
       <hr />
 
-      <p id="pErro"></p>
-
       <section>
-        <h1 class="titulo-grafico">-Estatísticas da Qualidade do AR-</h1>
+        <h1 class="titulo-grafico">-Estatísticas da Qualidade Do Ar-</h1>
 
         <div class="container-estatisticas">
           <div class="menu-graficos">
@@ -90,9 +88,14 @@
             Data final:
             <input type="date" id="dataFinal" required />
 
-            <input type="submit" value="Pesquisar" id="botaoData" />
+            <button type="button" id="botaoPesquisa">Pesquisar</button>
+            <p id="pErro"></p>
           </form>
         </div>
+      </section>
+
+      <section class="quadradoGrafico">
+        <canvas id="graficoMabel"></canvas>
       </section>
 
       <section class="quadradoGrafico">
@@ -113,3 +116,4 @@
     <script src="../JS/graficoPTQAumidade.js"></script>
   </body>
 </html>
+

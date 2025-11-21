@@ -76,7 +76,7 @@
         </figure>
       </section>
 
-      <hr>
+      <hr />
 
       <p id="pErro"></p>
 
@@ -109,13 +109,14 @@
           </div>
 
           <form class="form-busca">
-            <h3>Data inicial:</h3>
+            Data inicial:
             <input type="date" id="dataInicial" required />
 
-            <h3>Data final:</h3>
+            Data final:
             <input type="date" id="dataFinal" required />
 
-            <input type="submit" value="Pesquisar" id="botaoData" />
+            <button type="button" id="botaoPesquisa">Pesquisar</button>
+            <p id="pErro"></p>
           </form>
         </div>
       </section>
@@ -131,6 +132,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../JS/graficoMabel.js"></script>
-
   </body>
 </html>

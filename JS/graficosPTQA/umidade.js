@@ -1,4 +1,4 @@
-let botaoData = document.getElementById("botaoData");
+let botaoPesquisa = document.getElementById("botaoPesquisa");
 let dataInicial = document.getElementById("dataInicial");
 let dataFinal = document.getElementById("dataFinal");
 let paragrafoErroGrafico = document.getElementById("pErro");
@@ -8,6 +8,7 @@ function chamarBackend(event) {
 
     let valorDataInicial = dataInicial.value;
     let valorDataFinal = dataFinal.value;
+    let tipoGrafico = document.querySelector('input[name="tipoGrafico"]:checked').value; // Pega o tipo de gráfico selecionado
 
     // --- VALIDAÇÕES ---
     if (!valorDataInicial || !valorDataFinal) {
@@ -23,7 +24,8 @@ function chamarBackend(event) {
     // limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaUmidade.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
+    // Criação da URL com as datas e tipo de gráfico
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaUmidade.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("URL chamada:", url);
 
@@ -37,11 +39,11 @@ function chamarBackend(event) {
 
             if (data.length > 0) {
                 const labels = data.map(item => item.dataleitura);
-                const mediaCo2 = data.map(item => item.umidade);
+                const umidade = data.map(item => item.umidade);
 
                 const ctx = document.getElementById('graficoPTQAumidade').getContext('2d');
                 const myChart = new Chart(ctx, {
-                    type: 'bar',
+                    type: tipoGrafico, // Tipo de gráfico enviado
                     data: {
                         labels: labels,
                         datasets: [{
@@ -63,7 +65,7 @@ function chamarBackend(event) {
 
             } else {
                 console.log("Nenhum dado encontrado.");
-                paragrafoErroGrafico.innerText = "Nenhum dado encontrado."
+                paragrafoErroGrafico.innerText = "Nenhum dado encontrado.";
             }
         })
         .catch(error => {
@@ -71,4 +73,5 @@ function chamarBackend(event) {
         });
 }
 
-botaoData.addEventListener("click", chamarBackend); 
+// Adiciona o evento de clique no botão de pesquisa
+botaoPesquisa.addEventListener("click", chamarBackend);
