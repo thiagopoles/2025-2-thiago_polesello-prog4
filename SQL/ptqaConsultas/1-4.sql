@@ -1,4 +1,4 @@
--- 4. CO₂ acima de 1000 ppm (eco2)
+-- 4. CO₂ acima de 1000 ppm (eco2) = feito
 SELECT *
 FROM leituraptqa
 WHERE dataleitura BETWEEN @inicio AND @fim
