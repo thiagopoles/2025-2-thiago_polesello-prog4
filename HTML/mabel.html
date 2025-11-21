@@ -76,45 +76,52 @@
         </figure>
       </section>
 
-      <hr>
+      <hr />
 
       <p id="pErro"></p>
 
       <section>
-        <h1 class="titulo-grafico">-Estatísticas da Colmeia-</h1>
+        <h1 class="titulo-grafico">-Estatísticas da Qualidade do AR-</h1>
 
+        <!-- CONTAINER FLEX CORRETO -->
         <div class="container-estatisticas">
+          <!-- MENU DE GRÁFICOS -->
           <div class="menu-graficos">
             <h3>Tipo de Gráfico</h3>
 
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="linha" checked />
-              Gráfico de Linha
-            </label>
+            <form action="grafico.php" method="get">
+              <!-- Envio de dados para PHP -->
 
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="barra" />
-              Gráfico de Barra
-            </label>
+              <label class="opcao-grafico">
+                <input type="radio" name="tipoGrafico" value="linha" checked />
+                Gráfico de Linha
+              </label>
 
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="pizza" />
-              Gráfico de Pizza
-            </label>
+              <label class="opcao-grafico">
+                <input type="radio" name="tipoGrafico" value="barra" />
+                Gráfico de Barra
+              </label>
 
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="area" />
-              Gráfico de Área
-            </label>
+              <label class="opcao-grafico">
+                <input type="radio" name="tipoGrafico" value="pizza" />
+                Gráfico de Pizza
+              </label>
+
+              <label class="opcao-grafico">
+                <input type="radio" name="tipoGrafico" value="area" />
+                Gráfico de Área
+              </label>
+
+              <button type="submit">Gerar Gráfico</button>
+            </form>
           </div>
 
+          <!-- FORMULÁRIO SEPARADO, AGORA FUNCIONA -->
           <form class="form-busca">
-            <h3>Data inicial:</h3>
+            Data inicial:
             <input type="date" id="dataInicial" required />
-
-            <h3>Data final:</h3>
+            Data final:
             <input type="date" id="dataFinal" required />
-
             <input type="submit" value="Pesquisar" id="botaoData" />
           </form>
         </div>
@@ -131,6 +138,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../JS/graficoMabel.js"></script>
-
   </body>
 </html>
