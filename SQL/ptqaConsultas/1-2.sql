@@ -2,4 +2,4 @@
 SELECT *
 FROM leituraptqa
 WHERE dataleitura BETWEEN @inicio AND @fim
-  AND aqi >= 4;
+AND aqi >= 4;

@@ -16,7 +16,6 @@ body {
   margin: 10px;
 }
 
-
 /* ----------------------------------------------------------------------------------------------------- */
 /* MENU */
 header {
@@ -71,7 +70,6 @@ hr {
   margin: 30px;
 }
 
-
 /* ----------------------------------------------------------------------------------------------------- */
 /* INDEX */
 main {
@@ -86,7 +84,7 @@ main {
 }
 
 .imgIndex::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
@@ -112,7 +110,6 @@ main {
   z-index: 2;
   text-align: center;
 }
-
 
 /* ----------------------------------------------------------------------------------------------------- */
 /*quadrados com resumo dos projetos*/
@@ -201,7 +198,6 @@ main {
   box-shadow: 5px 5px 10px gainsboro;
 }
 
-
 /* ----------------------------------------------------------------------------------------------------- */
 /* RODAPÉ */
 footer {
@@ -244,7 +240,7 @@ section ol {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#fases{
+#fases {
   margin-top: 30px;
 }
 
@@ -339,5 +335,71 @@ section ol {
 @media (max-width: 650px) {
   #chart {
     height: 250px;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+/* BOTÃO BUSCA */
+/* Estilos gerais para o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os campos de data */
+input[type='date'] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilo de foco para os campos de data */
+input[type='date']:focus {
+  border-color: #4caf50; /* Cor verde para foco */
+  background-color: #fff; /* Fundo branco quando focado */
+}
+
+/* Estilo para o botão de pesquisa */
+input[type='submit'] {
+  padding: 12px 20px;
+  background-color: #4caf50; /* Cor de fundo verde */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%; /* Faz o botão ocupar toda a largura */
+}
+
+/* Efeito de hover no botão */
+input[type='submit']:hover {
+  background-color: #45a049; /* Cor mais escura no hover */
+  transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* Efeito de foco no botão */
+input[type='submit']:focus {
+  outline: none;
+  border: 2px solid #333; /* Borda quando o botão recebe o foco */
+}
+
+/* Responsividade: Ajusta a largura do formulário em telas menores */
+@media (max-width: 400px) {
+  form {
+    width: 100%;
+    padding: 15px;
   }
 }

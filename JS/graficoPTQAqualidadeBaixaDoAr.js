@@ -23,7 +23,7 @@ function chamarBackend(event) {
     // limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaMabelTE.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaBaixaQualidadeDoAR.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
 
     console.log("URL chamada:", url);
 
@@ -37,17 +37,16 @@ function chamarBackend(event) {
 
             if (data.length > 0) {
                 const labels = data.map(item => item.dataleitura);
-                const valores = data.map(item => item.temp_externa);
+                const mediaCo2 = data.map(item => item.media_co2);
 
-
-                const ctx = document.getElementById('graficoMabelTE').getContext('2d');
+                const ctx = document.getElementById('graficoPTQAqualidadeBaixaDoAr').getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
-                            data: valores,
-                            label: 'Temperatura Externa (He)',
+                            label: 'Baixa Qualidade do Ar',
+                            data: mediaCo2,
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1
