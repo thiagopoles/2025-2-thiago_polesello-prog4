@@ -54,52 +54,48 @@
       <hr />
 
       <section>
-        <h1 class="titulo-grafico">-Estatísticas da Qualidade do AR-</h1>
+        <h1 class="titulo-grafico">-Estatísticas da Qualidade Do Ar-</h1>
 
-        <!-- CONTAINER FLEX CORRETO -->
         <div class="container-estatisticas">
-          <!-- MENU DE GRÁFICOS -->
           <div class="menu-graficos">
             <h3>Tipo de Gráfico</h3>
 
-            <form action="grafico.php" method="get">
-              <!-- Envio de dados para PHP -->
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="linha" checked />
+              Gráfico de Linha
+            </label>
 
-              <label class="opcao-grafico">
-                <input type="radio" name="tipoGrafico" value="linha" checked />
-                Gráfico de Linha
-              </label>
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="barra" />
+              Gráfico de Barra
+            </label>
 
-              <label class="opcao-grafico">
-                <input type="radio" name="tipoGrafico" value="barra" />
-                Gráfico de Barra
-              </label>
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="pizza" />
+              Gráfico de Pizza
+            </label>
 
-              <label class="opcao-grafico">
-                <input type="radio" name="tipoGrafico" value="pizza" />
-                Gráfico de Pizza
-              </label>
-
-              <label class="opcao-grafico">
-                <input type="radio" name="tipoGrafico" value="area" />
-                Gráfico de Área
-              </label>
-
-              <button type="submit">Gerar Gráfico</button>
-            </form>
+            <label class="opcao-grafico">
+              <input type="radio" name="tipoGrafico" value="area" />
+              Gráfico de Área
+            </label>
           </div>
 
           <form class="form-busca">
             Data inicial:
             <input type="date" id="dataInicial" required />
-          
+
             Data final:
             <input type="date" id="dataFinal" required />
-          
-            <button type="button" id="botaoData">Pesquisar</button>
-            <p id="pErro"></p> 
+
+            <button type="button" id="botaoPesquisa">Pesquisar</button>
+            <p id="pErro"></p>
           </form>
-          
+        </div>
+      </section>
+
+      <section class="quadradoGrafico">
+        <canvas id="graficoMabel"></canvas>
       </section>
 
       <section class="quadradoGrafico">
@@ -120,3 +116,4 @@
     <script src="../JS/graficoPTQAumidade.js"></script>
   </body>
 </html>
+
