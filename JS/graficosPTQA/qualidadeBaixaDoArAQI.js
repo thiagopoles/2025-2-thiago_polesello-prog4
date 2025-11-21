@@ -46,7 +46,7 @@ function chamarBackend(event) {
                         labels: labels,
                         datasets: [{
                             label: 'Baixa Qualidade do Ar',
-                            data: mediaCo2,
+                            data: BaixaQualidadeAr,
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1

@@ -25,7 +25,7 @@ function chamarBackend(event) {
     paragrafoErroGrafico.innerText = "";
 
     // Criação da URL com as datas e tipo de gráfico
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultasPTQA/umidade.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("URL chamada:", url);
 
@@ -39,16 +39,16 @@ function chamarBackend(event) {
 
             if (data.length > 0) {
                 const labels = data.map(item => item.dataleitura);
-                const umidade = data.map(item => item.umidade);
+                const umidade = data.map(item => item.pressao);
 
-                const ctx = document.getElementById('umidade').getContext('2d');
+                const ctx = document.getElementById('pressao').getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: tipoGrafico, // Tipo de gráfico enviado
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Umidade',
-                            data: umidade,
+                            label: 'Pressao Atmosferica',
+                            data: pressao,
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1
