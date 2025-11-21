@@ -23,7 +23,7 @@ function chamarBackend(event) {
     // limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultaBaixaQualidadeDoAR.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultasPTQA/baixaQualidadeDoArAQI.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
 
     console.log("URL chamada:", url);
 
@@ -39,7 +39,7 @@ function chamarBackend(event) {
                 const labels = data.map(item => item.dataleitura);
                 const mediaCo2 = data.map(item => item.media_co2);
 
-                const ctx = document.getElementById('graficoPTQAqualidadeBaixaDoAr').getContext('2d');
+                const ctx = document.getElementById('baixaQualidadeDoAr').getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
