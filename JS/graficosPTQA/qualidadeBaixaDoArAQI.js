@@ -33,7 +33,7 @@ function carregarDadosQualidadeAr(valorDataInicial, valorDataFinal, tipoGrafico)
         return; // Deixa o formController lidar com os erros principais
     }
 
-    let url = `../PHP/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
+    let url = `../PHP/consultasPTQA/baixaQualidadeDoArAQI.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}`;
 
     console.log("AQI - URL chamada:", url);
 
@@ -84,7 +84,7 @@ function atualizarGraficoQualidadeAr(data, tipoGrafico) {
     }
 
     const labels = data.map(item => item.dataleitura);
-    const mediaCo2 = data.map(item => item.media_co2);
+    const mediaCo2 = data.map(item => item.BaixaQualidadeAr);
 
     const ctx = canvas.getContext('2d');
     

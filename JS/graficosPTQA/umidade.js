@@ -33,7 +33,7 @@ function carregarDadosUmidade(valorDataInicial, valorDataFinal, tipoGrafico) {
         return; // Deixa o formController lidar com os erros principais
     }
 
-    let url = `../PHP/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
+    let url = `../PHP/consultasPTQA/umidade.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("Umidade - URL chamada:", url);
 
