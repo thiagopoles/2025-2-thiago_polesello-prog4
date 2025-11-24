@@ -53,7 +53,7 @@ function carregarDadosCO2(valorDataInicial, valorDataFinal, tipoGrafico) {
         paragrafoErroGrafico.innerText = "Carregando dados de CO₂...";
     }
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/PHP/consultasPTQA/CO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
+    let url = `../PHP/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("CO2 - URL chamada:", url);
 

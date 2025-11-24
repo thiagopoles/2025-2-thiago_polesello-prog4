@@ -33,7 +33,7 @@ function carregarDadosPressao(valorDataInicial, valorDataFinal, tipoGrafico) {
         return; // Deixa o formController lidar com os erros principais
     }
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
+    let url = `../PHP/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("Pressão - URL chamada:", url);
 
