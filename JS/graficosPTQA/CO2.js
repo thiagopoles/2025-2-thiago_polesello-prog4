@@ -1,16 +1,16 @@
-let botaoData = document.getElementById("botaoData");
+let botaoPesquisa = document.getElementById("botaoPesquisa");
 let dataInicial = document.getElementById("dataInicial");
 let dataFinal = document.getElementById("dataFinal");
 let paragrafoErroGrafico = document.getElementById("pErro");
 
 function chamarBackend(event) {
-    event.preventDefault(); // Impede o form de recarregar a página
+    event.preventDefault();
 
     let valorDataInicial = dataInicial.value;
     let valorDataFinal = dataFinal.value;
-    let tipoGrafico = document.querySelector('input[name="tipoGrafico"]:checked').value; // Obtém o tipo de gráfico selecionado
+    let tipoGrafico = document.querySelector('input[name="tipoGrafico"]:checked').value;
 
-    // --- VALIDAÇÕES ---
+    // Validações
     if (!valorDataInicial || !valorDataFinal) {
         paragrafoErroGrafico.innerText = "Por favor, preencha as duas datas.";
         return;
@@ -21,29 +21,35 @@ function chamarBackend(event) {
         return;
     }
 
-    // Limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    // Criação da URL com as datas e o tipo de gráfico
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/graficosPTQA/consultaCO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/graficosPTQA/CO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("URL chamada:", url);
 
     fetch(url)
         .then(response => {
             console.log("Resposta bruta:", response);
+            if (!response.ok) {
+                throw new Error('Erro na resposta do servidor');
+            }
             return response.json();
         })
         .then(data => {
             console.log("JSON recebido:", data);
 
-            if (data.length > 0) {
+            // Destruir gráfico anterior se existir
+            if (window.myChartCO2 instanceof Chart) {
+                window.myChartCO2.destroy();
+            }
+
+            if (data.length > 0 && !data.erro) {
                 const labels = data.map(item => item.dataleitura);
                 const mediaCo2 = data.map(item => item.media_co2);
 
                 const ctx = document.getElementById('graficoPTQACO2').getContext('2d');
-                const myChart = new Chart(ctx, {
-                    type: tipoGrafico, // Usando o tipo de gráfico selecionado
+                window.myChartCO2 = new Chart(ctx, {
+                    type: tipoGrafico,
                     data: {
                         labels: labels,
                         datasets: [{
@@ -55,6 +61,7 @@ function chamarBackend(event) {
                         }]
                     },
                     options: {
+                        responsive: true,
                         scales: {
                             y: {
                                 beginAtZero: true
@@ -65,12 +72,14 @@ function chamarBackend(event) {
 
             } else {
                 console.log("Nenhum dado encontrado.");
-                paragrafoErroGrafico.innerText = "Nenhum dado encontrado.";
+                paragrafoErroGrafico.innerText = "Nenhum dado encontrado para o período selecionado.";
             }
         })
         .catch(error => {
             console.error('Erro ao obter dados:', error);
+            paragrafoErroGrafico.innerText = "Erro ao carregar dados do gráfico.";
         });
 }
 
-botaoData.addEventListener("click", chamarBackend);
+// Adicionar event listener
+botaoPesquisa.addEventListener("click", chamarBackend);
