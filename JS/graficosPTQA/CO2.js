@@ -23,7 +23,7 @@ function chamarBackend(event) {
 
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/graficosPTQA/CO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/PHP/consultasPTQA/CO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("URL chamada:", url);
 
