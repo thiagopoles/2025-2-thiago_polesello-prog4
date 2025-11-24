@@ -60,23 +60,23 @@
             <h3>Tipo de Gráfico</h3>
 
             <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="linha" checked />
+              <input type="radio" name="tipoGrafico" value="line" checked />
               Gráfico de Medida do CO2
             </label>
 
             <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="barra" />
-              Gráfico de Barra
+              <input type="radio" name="tipoGrafico" value="bar" />
+              Gráfico de Pressão Atmosférica
             </label>
 
             <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="pizza" />
-              Gráfico de Pizza
+              <input type="radio" name="tipoGrafico" value="pie" />
+              Gráfico de Qualidade Baixa Do Ar
             </label>
 
             <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="area" />
-              Gráfico de Área
+              <input type="radio" name="tipoGrafico" value="line" />
+              Gráfico de Umidade
             </label>
           </div>
 
@@ -94,18 +94,22 @@
       </section>
 
       <section class="quadradoGrafico">
+        <h3>CO₂</h3>
         <canvas id="co2"></canvas>
       </section>
 
       <section class="quadradoGrafico">
+        <h3>Pressão Atmosférica</h3>
         <canvas id="pressaoAtmosferica"></canvas>
       </section>
 
       <section class="quadradoGrafico">
+        <h3>Umidade</h3>
         <canvas id="umidade"></canvas>
       </section>
 
       <section class="quadradoGrafico">
+        <h3>Qualidade do Ar (AQI)</h3>
         <canvas id="qualidadeBaixaDoArAQI"></canvas>
       </section>
     </main>
@@ -116,10 +120,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- Primeiro o controlador do formulário -->
+    <script src="../JS/graficosPTQA/formController.js"></script>
+    
+    <!-- Depois os gráficos independentes -->
     <script src="../JS/graficosPTQA/CO2.js"></script>
     <script src="../JS/graficosPTQA/pressaoAtmosferica.js"></script>
     <script src="../JS/graficosPTQA/umidade.js"></script>
     <script src="../JS/graficosPTQA/qualidadeBaixaDoArAQI.js"></script>
   </body>
 </html>
-
