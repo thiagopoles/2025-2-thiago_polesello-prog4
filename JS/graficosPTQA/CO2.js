@@ -138,7 +138,7 @@ function chamarBackend(event) {
                 const labels = data.map(item => item.dataleitura);
                 const mediaCo2 = data.map(item => item.media_co2);
 
-                const ctx = document.getElementById('graficoPTQACO2').getContext('2d');
+                const ctx = document.getElementById('co2').getContext('2d');
                 window.myChartCO2 = new Chart(ctx, {
                     type: tipoGrafico,
                     data: {

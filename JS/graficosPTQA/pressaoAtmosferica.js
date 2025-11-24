@@ -4,13 +4,13 @@ let dataFinal = document.getElementById("dataFinal");
 let paragrafoErroGrafico = document.getElementById("pErro");
 
 function chamarBackend(event) {
-    event.preventDefault(); // Impede o form de recarregar a página
+    event.preventDefault(); 
 
     let valorDataInicial = dataInicial.value;
     let valorDataFinal = dataFinal.value;
-    let tipoGrafico = document.querySelector('input[name="tipoGrafico"]:checked').value; // Pega o tipo de gráfico selecionado
+    let tipoGrafico = document.querySelector('input[name="tipoGrafico"]:checked').value;
 
-    // --- VALIDAÇÕES ---
+    // Validações
     if (!valorDataInicial || !valorDataFinal) {
         paragrafoErroGrafico.innerText = "Por favor, preencha as duas datas.";
         return;
@@ -21,10 +21,8 @@ function chamarBackend(event) {
         return;
     }
 
-    // limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    // Criação da URL com as datas e tipo de gráfico
     let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
 
     console.log("URL chamada:", url);
@@ -38,16 +36,23 @@ function chamarBackend(event) {
             console.log("JSON recebido:", data);
 
             if (data.length > 0) {
+
+                // PEGAR DADOS
                 const labels = data.map(item => item.dataleitura);
-                const umidade = data.map(item => item.pressao);
+                const pressao = data.map(item => item.pressao);
+
+                // Se já existir gráfico, destruir
+                if (window.myChartPressao instanceof Chart) {
+                    window.myChartPressao.destroy();
+                }
 
                 const ctx = document.getElementById('pressao').getContext('2d');
-                const myChart = new Chart(ctx, {
-                    type: tipoGrafico, // Tipo de gráfico enviado
+                window.myChartPressao = new Chart(ctx, {
+                    type: tipoGrafico,
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Pressao Atmosferica',
+                            label: 'Pressão Atmosférica',
                             data: pressao,
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgba(54, 162, 235, 1)',
@@ -69,9 +74,9 @@ function chamarBackend(event) {
             }
         })
         .catch(error => {
-            console.error('Erro ao obter dados:', error);
+            console.error("Erro ao obter dados:", error);
+            paragrafoErroGrafico.innerText = "Erro ao carregar dados.";
         });
 }
 
-// Adiciona o evento de clique no botão de pesquisa
 botaoPesquisa.addEventListener("click", chamarBackend);

@@ -1,52 +1,44 @@
-let botaoData = document.getElementById("botaoData");
-let dataInicial = document.getElementById("dataInicial");
-let dataFinal = document.getElementById("dataFinal");
-let paragrafoErroGrafico = document.getElementById("pErro");
+let botaoDataAQI = document.getElementById("botaoData");
+let dataInicialAQI = document.getElementById("dataInicial");
+let dataFinalAQI = document.getElementById("dataFinal");
+let erroAQI = document.getElementById("pErro");
 
-function chamarBackend(event) {
-    event.preventDefault(); // Impede o form de recarregar a página
+function chamarBackendAQI(event) {
+    event.preventDefault();
 
-    let valorDataInicial = dataInicial.value;
-    let valorDataFinal = dataFinal.value;
+    let valorDataInicial = dataInicialAQI.value;
+    let valorDataFinal = dataFinalAQI.value;
 
-    // --- VALIDAÇÕES ---
     if (!valorDataInicial || !valorDataFinal) {
-        paragrafoErroGrafico.innerText = "Por favor, preencha as duas datas.";
+        erroAQI.innerText = "Por favor, preencha as duas datas.";
         return;
     }
 
     if (valorDataInicial > valorDataFinal) {
-        paragrafoErroGrafico.innerText = "A data inicial não pode ser maior que a data final.";
+        erroAQI.innerText = "A data inicial não pode ser maior que a data final.";
         return;
     }
 
-    // limpa erro se estiver tudo OK
-    paragrafoErroGrafico.innerText = "";
+    erroAQI.innerText = "";
 
-    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultasPTQA/baixaQualidadeDoArAQI.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}` 
-
-    console.log("URL chamada:", url);
+    let url = `http://localhost/2025-2-thiago_polesello-prog4/php/consultasPTQA/baixaQualidadeDoArAQI.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}`;
 
     fetch(url)
-        .then(response => {
-            console.log("Resposta bruta:", response);
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log("JSON recebido:", data);
 
             if (data.length > 0) {
                 const labels = data.map(item => item.dataleitura);
                 const mediaCo2 = data.map(item => item.media_co2);
 
-                const ctx = document.getElementById('baixaQualidadeDoAr').getContext('2d');
-                const myChart = new Chart(ctx, {
+                const ctx = document.getElementById('qualidadeBaixaDoArAQI').getContext('2d');
+                new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
                             label: 'Baixa Qualidade do Ar',
-                            data: BaixaQualidadeAr,
+                            data: mediaCo2,   // ← CORREÇÃO AQUI
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1
@@ -54,21 +46,16 @@ function chamarBackend(event) {
                     },
                     options: {
                         scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+                            y: { beginAtZero: true }
                         }
                     }
                 });
 
             } else {
-                console.log("Nenhum dado encontrado.");
-                paragrafoErroGrafico.innerText = "Nenhum dado encontrado."
+                erroAQI.innerText = "Nenhum dado encontrado.";
             }
         })
-        .catch(error => {
-            console.error('Erro ao obter dados:', error);
-        });
+        .catch(error => console.error('Erro ao obter dados:', error));
 }
 
-botaoData.addEventListener("click", chamarBackend); 
+botaoDataAQI.addEventListener("click", chamarBackendAQI);
