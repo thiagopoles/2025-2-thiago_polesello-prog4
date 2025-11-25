@@ -56,7 +56,7 @@
         <h1 class="titulo-grafico">-Estatísticas da Qualidade Do Ar-</h1>
 
         <div class="container-estatisticas">
-          <div class="menu-graficos">
+          <!-- <div class="menu-graficos">
             <h3>Gráfico</h3>
 
             <label class="opcao-grafico">
@@ -78,7 +78,7 @@
               <input type="radio" name="tipoGrafico" value="line" />
               Gráfico de Umidade
             </label>
-          </div>
+          </div>  -->
 
           <form class="form-busca">
             Data inicial:
@@ -89,6 +89,8 @@
 
             <button type="button" id="botaoPesquisa">Pesquisar</button>
             <p id="pErro"></p>
+
+
           </form>
         </div>
       </section>
@@ -115,11 +117,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Primeiro o controlador do formulário -->
-    <script src="../JS/graficosPTQA/formController.js"></script>
     
-    <!-- Depois os gráficos independentes -->
     <script src="../JS/graficosPTQA/CO2.js"></script>
     <script src="../JS/graficosPTQA/pressaoAtmosferica.js"></script>
     <script src="../JS/graficosPTQA/umidade.js"></script>
