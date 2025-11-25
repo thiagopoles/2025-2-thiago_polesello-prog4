@@ -1,15 +1,11 @@
-// umidade.js - Gráfico independente
 window.chartUmidade = null;
 
-// Inicializar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
-    // Registrar listener para eventos de pesquisa
     window.addEventListener('iniciarPesquisa', function(event) {
         const { dataInicial, dataFinal, tipoGrafico } = event.detail;
         carregarDadosUmidade(dataInicial, dataFinal, tipoGrafico);
     });
 
-    // Carregar dados iniciais após um breve delay
     setTimeout(() => {
         const dataInicial = document.getElementById('dataInicial');
         const dataFinal = document.getElementById('dataFinal');
@@ -48,17 +44,14 @@ function carregarDadosUmidade(valorDataInicial, valorDataFinal, tipoGrafico) {
         .then(data => {
             console.log("Umidade - Dados recebidos:", data);
 
-            // Verificar se veio informações de debug
             if (data.debug) {
                 console.log("Umidade - Debug info:", data.debug);
                 return;
             }
 
-            // Se veio dados normais
             if (data.length > 0) {
                 atualizarGraficoUmidade(data, tipoGrafico);
-                
-                // Emitir evento para outros gráficos (opcional)
+
                 window.dispatchEvent(new CustomEvent('dadosUmidadeCarregados', {
                     detail: {
                         dados: data,
@@ -93,7 +86,6 @@ function atualizarGraficoUmidade(data, tipoGrafico) {
         window.chartUmidade.destroy();
     }
 
-    // Configurações específicas para cada tipo de gráfico
     const config = {
         type: tipoGrafico,
         data: {
@@ -158,7 +150,6 @@ function atualizarGraficoUmidade(data, tipoGrafico) {
     console.log("Umidade - Gráfico atualizado com sucesso");
 }
 
-// Funções auxiliares
 function getBackgroundColor(tipoGrafico, corPadrao) {
     if (tipoGrafico === 'pie') {
         return [
@@ -179,7 +170,6 @@ function getPeriodoTexto(data) {
     return `${primeiraData} a ${ultimaData}`;
 }
 
-// Função para classificar o nível de umidade
 function classificarUmidade(valorUmidade) {
     if (valorUmidade < 30) return { classe: 'Muito Baixa', cor: '#FF6B6B' };
     if (valorUmidade < 40) return { classe: 'Baixa', cor: '#FFA726' };
@@ -188,7 +178,6 @@ function classificarUmidade(valorUmidade) {
     return { classe: 'Muito Alta', cor: '#FF6B6B' };
 }
 
-// Função para forçar atualização externamente (opcional)
 window.atualizarUmidade = function(dataInicial, dataFinal, tipoGrafico) {
     carregarDadosUmidade(dataInicial, dataFinal, tipoGrafico);
 };

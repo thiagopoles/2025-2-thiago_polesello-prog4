@@ -1,15 +1,11 @@
-// pressaoAtmosferica.js - Gráfico independente
 window.chartPressao = null;
 
-// Inicializar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
-    // Registrar listener para eventos de pesquisa
     window.addEventListener('iniciarPesquisa', function(event) {
         const { dataInicial, dataFinal, tipoGrafico } = event.detail;
         carregarDadosPressao(dataInicial, dataFinal, tipoGrafico);
     });
 
-    // Carregar dados iniciais após um breve delay
     setTimeout(() => {
         const dataInicial = document.getElementById('dataInicial');
         const dataFinal = document.getElementById('dataFinal');
@@ -26,11 +22,11 @@ function carregarDadosPressao(valorDataInicial, valorDataFinal, tipoGrafico) {
     
     // Validações básicas
     if (!valorDataInicial || !valorDataFinal) {
-        return; // Deixa o formController lidar com os erros principais
+        return; 
     }
 
     if (valorDataInicial > valorDataFinal) {
-        return; // Deixa o formController lidar com os erros principais
+        return; 
     }
 
     let url = `../PHP/consultasPTQA/pressaoAtmosferica.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}&tipoGrafico=${tipoGrafico}`;
@@ -48,18 +44,14 @@ function carregarDadosPressao(valorDataInicial, valorDataFinal, tipoGrafico) {
         .then(data => {
             console.log("Pressão - Dados recebidos:", data);
 
-            // Verificar se veio informações de debug
             if (data.debug) {
                 console.log("Pressão - Debug info:", data.debug);
-                // Não mostra erro no parágrafo principal para não conflitar com outros gráficos
                 return;
             }
 
-            // Se veio dados normais
             if (data.length > 0) {
                 atualizarGraficoPressao(data, tipoGrafico);
                 
-                // Emitir evento para outros gráficos (opcional)
                 window.dispatchEvent(new CustomEvent('dadosPressaoCarregados', {
                     detail: {
                         dados: data,
@@ -96,7 +88,6 @@ function atualizarGraficoPressao(data, tipoGrafico) {
         window.chartPressao.destroy();
     }
 
-    // Configurações específicas para cada tipo de gráfico
     const config = {
         type: tipoGrafico,
         data: {
@@ -128,13 +119,13 @@ function atualizarGraficoPressao(data, tipoGrafico) {
             },
             scales: tipoGrafico !== 'pie' ? {
                 y: {
-                    beginAtZero: false, // Pressão geralmente não começa em zero
+                    beginAtZero: false, 
                     title: {
                         display: true,
                         text: 'hPa'
                     },
-                    min: Math.min(...pressao) - 10, // Margem mínima
-                    max: Math.max(...pressao) + 10  // Margem máxima
+                    min: Math.min(...pressao) - 10, 
+                    max: Math.max(...pressao) + 10 
                 },
                 x: {
                     title: {
@@ -150,7 +141,6 @@ function atualizarGraficoPressao(data, tipoGrafico) {
     console.log("Pressão - Gráfico atualizado com sucesso");
 }
 
-// Funções auxiliares
 function getBackgroundColor(tipoGrafico, corPadrao) {
     if (tipoGrafico === 'pie') {
         return [
@@ -171,7 +161,6 @@ function getPeriodoTexto(data) {
     return `${primeiraData} a ${ultimaData}`;
 }
 
-// Função para forçar atualização externamente (opcional)
 window.atualizarPressao = function(dataInicial, dataFinal, tipoGrafico) {
     carregarDadosPressao(dataInicial, dataFinal, tipoGrafico);
 };

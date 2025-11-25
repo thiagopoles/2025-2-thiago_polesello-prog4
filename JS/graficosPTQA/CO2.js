@@ -1,4 +1,3 @@
-// CO2.js - Gráfico independente - CORRIGIDO
 window.chartCO2 = null;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,13 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
         dataFinal.value = hoje.toISOString().split('T')[0];
     }
 
-    // Registrar listener para eventos de pesquisa
     window.addEventListener('iniciarPesquisa', function(event) {
         const { dataInicial, dataFinal, tipoGrafico } = event.detail;
         carregarDadosCO2(dataInicial, dataFinal, tipoGrafico);
     });
 
-    // Carregar dados iniciais
     if (dataInicial && dataFinal) {
         setTimeout(() => {
             const tipoGrafico = document.querySelector('input[name="tipoGrafico"]:checked').value;
@@ -52,8 +49,7 @@ function carregarDadosCO2(valorDataInicial, valorDataFinal, tipoGrafico) {
         paragrafoErroGrafico.innerText = "Carregando dados de CO₂...";
     }
 
-    // ✅ CORREÇÃO: Caminho correto e arquivo correto
-    let url = `../../PHP/consultasPTQA/CO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}`;
+    let url = `../PHP/consultasPTQA/CO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}`;
 
     console.log("CO2 - URL chamada:", url);
 
@@ -63,7 +59,7 @@ function carregarDadosCO2(valorDataInicial, valorDataFinal, tipoGrafico) {
             if (!response.ok) {
                 throw new Error(`Erro ${response.status}: ${response.statusText}`);
             }
-            return response.text(); // Mude para text() primeiro para debug
+            return response.text(); 
         })
         .then(text => {
             console.log("CO2 - Resposta bruta:", text.substring(0, 500)); // Mostra início da resposta
@@ -114,7 +110,6 @@ function carregarDadosCO2(valorDataInicial, valorDataFinal, tipoGrafico) {
         });
 }
 
-// ✅ ADICIONE esta função para dados simulados
 function usarDadosSimuladosCO2(dataInicial, dataFinal, tipoGrafico) {
     console.log("CO2 - Usando dados simulados");
     

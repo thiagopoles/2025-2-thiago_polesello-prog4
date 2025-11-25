@@ -1,15 +1,11 @@
-// qualidadeBaixaDoArAQI.js - Gráfico independente
 window.chartQualidadeAr = null;
 
-// Inicializar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
-    // Registrar listener para eventos de pesquisa
     window.addEventListener('iniciarPesquisa', function(event) {
         const { dataInicial, dataFinal, tipoGrafico } = event.detail;
         carregarDadosQualidadeAr(dataInicial, dataFinal, tipoGrafico);
     });
 
-    // Carregar dados iniciais após um breve delay
     setTimeout(() => {
         const dataInicial = document.getElementById('dataInicial');
         const dataFinal = document.getElementById('dataFinal');
@@ -48,17 +44,14 @@ function carregarDadosQualidadeAr(valorDataInicial, valorDataFinal, tipoGrafico)
         .then(data => {
             console.log("AQI - Dados recebidos:", data);
 
-            // Verificar se veio informações de debug
             if (data.debug) {
                 console.log("AQI - Debug info:", data.debug);
                 return;
             }
 
-            // Se veio dados normais
             if (data.length > 0) {
                 atualizarGraficoQualidadeAr(data, tipoGrafico);
                 
-                // Emitir evento para outros gráficos (opcional)
                 window.dispatchEvent(new CustomEvent('dadosQualidadeArCarregados', {
                     detail: {
                         dados: data,
@@ -93,7 +86,6 @@ function atualizarGraficoQualidadeAr(data, tipoGrafico) {
         window.chartQualidadeAr.destroy();
     }
 
-    // Configurações específicas para cada tipo de gráfico
     const config = {
         type: tipoGrafico,
         data: {
@@ -137,7 +129,7 @@ function atualizarGraficoQualidadeAr(data, tipoGrafico) {
                         display: true,
                         text: 'Índice AQI'
                     },
-                    // Escala típica de AQI
+
                     suggestedMin: 0,
                     suggestedMax: Math.max(...mediaCo2) + 50
                 },
@@ -155,7 +147,6 @@ function atualizarGraficoQualidadeAr(data, tipoGrafico) {
     console.log("AQI - Gráfico atualizado com sucesso");
 }
 
-// Funções auxiliares
 function getBackgroundColor(tipoGrafico, corPadrao) {
     if (tipoGrafico === 'pie') {
         return [
@@ -176,7 +167,6 @@ function getPeriodoTexto(data) {
     return `${primeiraData} a ${ultimaData}`;
 }
 
-// Função para forçar atualização externamente (opcional)
 window.atualizarQualidadeAr = function(dataInicial, dataFinal, tipoGrafico) {
     carregarDadosQualidadeAr(dataInicial, dataFinal, tipoGrafico);
 };
