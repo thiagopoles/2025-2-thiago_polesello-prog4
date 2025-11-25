@@ -1,4 +1,4 @@
-let botaoData = document.getElementById("botaoPesquisa");
+/*let botaoPesquisa = document.getElementById("botaoPesquisa");
 let dataInicial = document.getElementById("dataInicial");
 let dataFinal = document.getElementById("dataFinal");
 let paragrafoErroGrafico = document.getElementById("pErro");
@@ -71,4 +71,4 @@ function chamarBackend() {
         });
 }
 
-botaoData.addEventListener("click", chamarBackend);
+botaoPesquisa.addEventListener("click", chamarBackend);*/
