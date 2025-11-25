@@ -1,7 +1,3 @@
-
-
-/* -------------------------------------------------------------------------- */
-
 let botaoData = document.getElementById("botaoData");
 let dataInicial = document.getElementById("dataInicial");
 let dataFinal = document.getElementById("dataFinal");
