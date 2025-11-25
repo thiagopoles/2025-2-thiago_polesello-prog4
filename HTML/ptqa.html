@@ -50,77 +50,43 @@
         </ol>
       </section>
 
-      <hr />
+      <hr/>
 
       <section>
         <h1 class="titulo-grafico">-Estatísticas da Qualidade Do Ar-</h1>
 
-        <div class="container-estatisticas">
-          <!-- <div class="menu-graficos">
-            <h3>Gráfico</h3>
+        <div class="form-box">
 
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="line" checked />
-              Gráfico de Medida do CO2
-            </label>
-
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="bar" />
-              Gráfico de Pressão Atmosférica
-            </label>
-
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="pie" />
-              Gráfico de Qualidade Baixa Do Ar
-            </label>
-
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="line" />
-              Gráfico de Umidade
-            </label>
-          </div>  -->
-
-          <form class="form-busca">
-            Data inicial:
-            <input type="date" id="dataInicial" required />
-
-            Data final:
-            <input type="date" id="dataFinal" required />
-
-            <button type="button" id="botaoPesquisa">Pesquisar</button>
-            <p id="pErro"></p>
-
-
-          </form>
+          <label>Tipo de gráfico:</label>
+          <select id="selecionarGrafico">
+              <option value="">Selecione...</option>
+              <option value="temperatura">Temperatura</option>
+              <option value="aqi4">AQI ≥ 4</option>
+              <option value="umidade70">Umidade > 70%</option>
+              <option value="co2">CO₂ > 1000 ppm</option>
+              <option value="pressao">Pressão < 1000 hPa</option>
+              <option value="gases">Gases > 200 ppb</option>
+          </select>
+      
+          <label>Data inicial:</label>
+          <input type="date" id="dataInicial">
+      
+          <label>Data final:</label>
+          <input type="date" id="dataFinal">
+      
+          <button id="btnPesquisar">Pesquisar</button>
+      </div>
+      
+      </section>
+        
+        <div class="graficoArea">
+            <canvas id="grafico"></canvas>
         </div>
-      </section>
-
-      <section class="quadradoGrafico">
-        <canvas id="co2"></canvas>
-      </section>
-
-      <section class="quadradoGrafico">
-        <canvas id="pressaoAtmosferica"></canvas>
-      </section>
-
-      <section class="quadradoGrafico">
-        <canvas id="umidade"></canvas>
-      </section>
-
-      <section class="quadradoGrafico">
-        <canvas id="qualidadeBaixaDoArAQI"></canvas>
-      </section>
-    </main>
+        
+        <script src="../JS/graficosPTQA/loaderPTQA.js"></script>
 
     <footer>
       <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <script src="../JS/graficosPTQA/CO2.js"></script>
-    <script src="../JS/graficosPTQA/pressaoAtmosferica.js"></script>
-    <script src="../JS/graficosPTQA/umidade.js"></script>
-    <script src="../JS/graficosPTQA/qualidadeBaixaDoArAQI.js"></script>
   </body>
 </html>
