@@ -1,4 +1,4 @@
-let botaoData = document.getElementById("botaoData");
+let botaoData = document.getElementById("botaoPesquisa");
 let dataInicial = document.getElementById("dataInicial");
 let dataFinal = document.getElementById("dataFinal");
 let paragrafoErroGrafico = document.getElementById("pErro");
