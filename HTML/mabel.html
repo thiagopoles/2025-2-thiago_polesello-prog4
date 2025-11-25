@@ -83,30 +83,14 @@
       <section>
         <h1 class="titulo-grafico">-Estatísticas da Colmeia-</h1>
 
-        <div class="container-estatisticas">
-          <div class="menu-graficos">
-            <h3>Tipo de Gráfico</h3>
+        <label for="tipoGrafico">Tipo de gráfico:</label>
 
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="linha" checked />
-              Gráfico de Linha
-            </label>
-
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="barra" />
-              Gráfico de Barra
-            </label>
-
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="pizza" />
-              Gráfico de Pizza
-            </label>
-
-            <label class="opcao-grafico">
-              <input type="radio" name="tipoGrafico" value="area" />
-              Gráfico de Área
-            </label>
-          </div>
+          <select id="tipoGrafico">
+            <option value="linha">Gráfico de Linha</option>
+            <option value="barra">Gráfico de Barra</option>
+            <option value="pizza">Gráfico de Pizza</option>
+            <option value="area">Gráfico de Área</option>
+          </select>
 
           <form class="form-busca">
             Data inicial:
