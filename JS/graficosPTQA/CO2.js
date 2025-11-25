@@ -27,7 +27,7 @@ function chamarBackend() {
     // limpa erro se estiver tudo OK
     paragrafoErroGrafico.innerText = "";
 
-    let url = `http://localhost/2025-2-Murilo-Thome-Prog4/backend/consulta_cindias_co_ptqa.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}`;
+    let url = `http://localhost/2025-2-thiago_polesollo-prog4/PHP/consultasPTQA/CO2.php?dataInicial=${valorDataInicial}&dataFinal=${valorDataFinal}`;
 
     console.log("URL chamada:", url);
 
