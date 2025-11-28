@@ -1,3 +1,4 @@
+const url = new URL(document.currentScript.src);
 const inicio = url.searchParams.get("inicio");
 const fim = url.searchParams.get("fim");
 
@@ -18,4 +19,3 @@ fetch(`localhost/2025-2-thiago_polesello-prog4/PHP/consultasMABEL/hi.php?inicio=
     });
 
 });
-

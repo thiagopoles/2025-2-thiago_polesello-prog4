@@ -1,4 +1,4 @@
-let chart;
+let chart = null;
 
 document.getElementById("btnPesquisar").addEventListener("click", () => {
 
@@ -15,6 +15,6 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
 
     const script = document.createElement("script");
     script.src = `localhost/2025-2-thiago_polesello-prog4/JS/graficosMABEL/${grafico}.js?inicio=${inicio}&fim=${fim}&v=` + Date.now();
-    document.body.appendChild(script);
 
+    document.body.appendChild(script);
 });
