@@ -12,7 +12,7 @@ fetch(`../PHP/consultasPTQA/co2.php?inicio=${inicio}&fim=${fim}`)
             labels: dados.map(x => x.datahora),
             datasets: [{
                 label: "CO₂ (ppm)",
-                data: dados.map(x => x.co2),
+                data: dados.map(x => x.eco2),
                 borderWidth: 1
             }]
         }
