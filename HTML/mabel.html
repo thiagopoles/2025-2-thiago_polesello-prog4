@@ -78,36 +78,37 @@
 
       <hr />
 
-      <p id="pErro"></p>
-
       <section>
         <h1 class="titulo-grafico">-Estatísticas da Colmeia-</h1>
 
-        <label for="tipoGrafico">Tipo de gráfico:</label>
+        <div class="containerCaixaDePesquisa">
+          <div class="form-box">
+            <label>Tipo de Gráfico:</label>
+            <select id="selecionarGrafico">
+              <option value="">Selecione</option>
+              <option value="ti">Temperatura interna</option>
+              <option value="te">Temperatura externa</option>
+              <option value="hi">Umidade interna</option>
+              <option value="he">Umidade externa</option>
+              <option value="ninho">Temperatura do ninho</option>
+            </select>
 
-          <select id="tipoGrafico">
-            <option value="linha">Gráfico de Linha</option>
-            <option value="barra">Gráfico de Barra</option>
-            <option value="pizza">Gráfico de Pizza</option>
-            <option value="area">Gráfico de Área</option>
-          </select>
+            <label>Data inicial:</label>
+            <input type="date" id="dataInicial" />
 
-          <form class="form-busca">
-            Data inicial:
-            <input type="date" id="dataInicial" required />
+            <label>Data final:</label>
+            <input type="date" id="dataFinal" />
 
-            Data final:
-            <input type="date" id="dataFinal" required />
-
-            <button type="button" id="botaoPesquisa">Pesquisar</button>
-            <p id="pErro"></p>
-          </form>
+            <button id="btnPesquisar">Pesquisar</button>
+          </div>
         </div>
       </section>
 
-      <section class="quadradoGrafico">
-        <canvas id="graficoMabel"></canvas>
-      </section>
+      <div class="graficoArea">
+        <canvas id="grafico"></canvas>
+      </div>
+
+      <script src="JS/graficosPTQA/loaderPTQA.js"></script>
     </main>
 
     <footer>
