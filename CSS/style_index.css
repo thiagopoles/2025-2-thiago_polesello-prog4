@@ -345,14 +345,14 @@ section ol {
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
-.titulo {
+.tituloCaixaDePesquisa {
   text-align: center;
   margin-top: 40px;
   font-size: 28px;
   color: #245732;
 }
 
-.container {
+.containerCaixaDePesquisa {
   width: 350px;
   margin: 40px auto;
   padding: 25px;
@@ -362,14 +362,14 @@ section ol {
   box-shadow: 0px 0px 10px #00000015;
 }
 
-.container label {
+.containerCaixaDePesquisa label {
   font-weight: bold;
   margin-top: 10px;
   display: block;
 }
 
-.container select,
-.container input {
+.containerCaixaDePesquisa select,
+.containerCaixaDePesquisa input {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
