@@ -345,10 +345,16 @@ section ol {
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
-/* Container do formulário */
-.form-box {
-  width: 600px;
-  margin: 25px auto;
+.titulo {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 28px;
+  color: #245732;
+}
+
+.container {
+  width: 350px;
+  margin: 40px auto;
   padding: 25px;
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -356,32 +362,28 @@ section ol {
   box-shadow: 0px 0px 10px #00000015;
 }
 
-/* Labels */
-.form-box label {
+.container label {
   font-weight: bold;
-  display: block;
   margin-top: 10px;
+  display: block;
 }
 
-/* Inputs de data e select */
-.form-box input,
-.form-box select {
+.container select,
+.container input {
   width: 100%;
   padding: 10px;
-  margin-top: 6px;
+  margin-top: 5px;
   border-radius: 8px;
-  border: 1px solid #bbb;
+  border: 1px solid #ccc;
   font-size: 15px;
-  background-color: #fff;
 }
 
-/* Botão de pesquisar */
 #btnPesquisar {
   width: 100%;
   padding: 12px;
-  margin-top: 18px;
+  margin-top: 20px;
   border: none;
-  background: #40b455;       /* verde igual do print */
+  background: #40b455;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -389,11 +391,15 @@ section ol {
   cursor: pointer;
 }
 
-/* Efeito hover */
 #btnPesquisar:hover {
   background: #2e9e43;
 }
 
+.graficoArea {
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px;
+}
 
 /* Mensagem de erro */
 #pErro {

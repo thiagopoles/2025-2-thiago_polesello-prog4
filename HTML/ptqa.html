@@ -55,35 +55,39 @@
       <section>
         <h1 class="titulo-grafico">-Estatísticas da Qualidade Do Ar-</h1>
 
-        <div class="form-box">
+        <div class="container">
 
-          <label>Tipo de gráfico:</label>
-          <select id="selecionarGrafico">
-              <option value="">Selecione...</option>
-              <option value="temperatura">Temperatura</option>
-              <option value="aqi4">AQI ≥ 4</option>
-              <option value="umidade70">Umidade > 70%</option>
-              <option value="co2">CO₂ > 1000 ppm</option>
-              <option value="pressao">Pressão < 1000 hPa</option>
-              <option value="gases">Gases > 200 ppb</option>
-          </select>
-      
-          <label>Data inicial:</label>
-          <input type="date" id="dataInicial">
-      
-          <label>Data final:</label>
-          <input type="date" id="dataFinal">
-      
-          <button id="btnPesquisar">Pesquisar</button>
-      </div>
-      
-      </section>
-        
-        <div class="graficoArea">
-            <canvas id="grafico"></canvas>
+          <div class="form-box">
+  
+              <label>Tipo de gráfico:</label>
+              <select id="selecionarGrafico">
+                  <option value="">Selecione...</option>
+                  <option value="temperatura">Temperatura</option>
+                  <option value="aqi4">AQI ≥ 4</option>
+                  <option value="umidade70">Umidade > 70%</option>
+                  <option value="co2">CO₂ > 1000 ppm</option>
+                  <option value="pressao">Pressão < 1000 hPa</option>
+                  <option value="gases">Gases > 200 ppb</option>
+              </select>
+  
+              <label>Data inicial:</label>
+              <input type="date" id="dataInicial">
+  
+              <label>Data final:</label>
+              <input type="date" id="dataFinal">
+  
+              <button id="btnPesquisar">Pesquisar</button>
+
+            </div>
         </div>
         
-        <script src="../JS/graficosPTQA/loaderPTQA.js"></script>
+      </section>  
+
+      <div class="graficoArea">
+          <canvas id="grafico"></canvas>
+      </div>
+  
+      <script src="JS/graficosPTQA/loaderPTQA.js"></script>
 
     <footer>
       <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
