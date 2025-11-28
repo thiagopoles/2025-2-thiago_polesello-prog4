@@ -1,33 +1,17 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+header('Content-Type: application/json');
+$conn = new mysqli("localhost","root","","mabel_ptqa_heitor_isabely_thiago");
 
-include '../mysqlConnection.php';
+$inicio = $_GET['inicio'];
+$fim = $_GET['fim'];
 
-$dataInicial = $_GET['dataInicial'] ?? null;
-$dataFinal   = $_GET['dataFinal'] ?? null;
+$sql = "SELECT datahora, co2 FROM leituraptqa
+        WHERE datahora BETWEEN '$inicio' AND '$fim'
+        AND co2 > 1000";
 
-if (!$dataInicial || !$dataFinal) {
-    echo json_encode(["erro" => "Datas não enviadas"]);
-    exit;
-}
+$res = $conn->query($sql);
 
-$sql = "SELECT dataleitura, ROUND(AVG(eco2),2) AS media_co2
-        FROM leituraptqa
-        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
-        GROUP BY dataleitura
-        ORDER BY dataleitura ASC";
+$dados = [];
+while($r = $res->fetch_assoc()) $dados[] = $r;
 
-$stmt = $conecta->prepare($sql);
-$stmt->execute([
-    ':dataInicial' => $dataInicial,
-    ':dataFinal'   => $dataFinal
-]);
-
-$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-echo json_encode($resultado);
-?>
-
-
+echo json_encode($dados);
