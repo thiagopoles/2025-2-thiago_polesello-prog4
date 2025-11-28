@@ -13,7 +13,7 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
 
     if (chart) chart.destroy();
 
-    carregarJS(`../JS/graficosPTQA/${graph}.js?inicio=${inicio}&fim=${fim}`);
+    carregarJS(`localhost/2025-2-thiago_polesello-prog4/JS/graficosPTQA/${graph}.js?inicio=${inicio}&fim=${fim}`);
 });
 
 function carregarJS(src) {

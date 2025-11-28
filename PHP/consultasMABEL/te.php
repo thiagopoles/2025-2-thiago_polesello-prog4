@@ -6,7 +6,7 @@ $inicio = $_GET['inicio'];
 $fim = $_GET['fim'];
 
 // Consulta SQL para pegar a datahora e a temperatura externa (campo 'te')
-$sql = "SELECT datahora, te FROM leituramabel
+$sql = "SELECT datainclusao, horainclusao, te FROM leituramabel
         WHERE datahora BETWEEN '$inicio' AND '$fim'
         ORDER BY datahora";
 

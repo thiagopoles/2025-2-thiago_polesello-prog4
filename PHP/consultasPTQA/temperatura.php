@@ -5,7 +5,7 @@ $conn = new mysqli("localhost","root","","mabel_ptqa_heitor_isabely_thiago");
 $inicio = $_GET['inicio'];
 $fim = $_GET['fim'];
 
-$sql = "SELECT datahora, temperatura FROM leituramabel
+$sql = "SELECT dataleitura, horaleitura, temperatura FROM leituramabel
         WHERE datahora BETWEEN '$inicio' AND '$fim'
         ORDER BY datahora ASC";
 

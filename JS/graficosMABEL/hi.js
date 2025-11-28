@@ -1,8 +1,7 @@
-const url = new URL(document.currentScript.src);
 const inicio = url.searchParams.get("inicio");
 const fim = url.searchParams.get("fim");
 
-fetch(`../PHP/consultasMABEL/hi.php?inicio=${inicio}&fim=${fim}`)
+fetch(`localhost/2025-2-thiago_polesello-prog4/PHP/consultasMABEL/hi.php?inicio=${inicio}&fim=${fim}`)
 .then(r => r.json())
 .then(dados => {
 
@@ -19,3 +18,4 @@ fetch(`../PHP/consultasMABEL/hi.php?inicio=${inicio}&fim=${fim}`)
     });
 
 });
+

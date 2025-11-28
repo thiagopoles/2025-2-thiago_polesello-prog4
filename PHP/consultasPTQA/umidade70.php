@@ -5,7 +5,7 @@ $conn = new mysqli("localhost","root","","mabel_ptqa_heitor_isabely_thiago");
 $inicio = $_GET['inicio'];
 $fim = $_GET['fim'];
 
-$sql = "SELECT datahora, umidade FROM leituraptqa
+$sql = "SELECT dataleitura, horaleitura, umidade FROM leituraptqa
         WHERE datahora BETWEEN '$inicio' AND '$fim'
         AND umidade > 70
         ORDER BY umidade DESC";

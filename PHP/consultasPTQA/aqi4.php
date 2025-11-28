@@ -5,7 +5,7 @@ $conn = new mysqli("localhost","root","","mabel_ptqa_heitor_isabely_thiago");
 $inicio = $_GET['inicio'];
 $fim = $_GET['fim'];
 
-$sql = "SELECT datahora, aqi FROM leituraptqa
+$sql = "SELECT dataleitura, horaleitura, aqi FROM leituraptqa
         WHERE datahora BETWEEN '$inicio' AND '$fim'
         AND aqi >= 4";
 
