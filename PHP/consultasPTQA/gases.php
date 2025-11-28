@@ -5,9 +5,9 @@ $conn = new mysqli("localhost","root","","mabel_ptqa_heitor_isabely_thiago");
 $inicio = $_GET['inicio'];
 $fim = $_GET['fim'];
 
-$sql = "SELECT datahora, gas FROM leituraptqa
+$sql = "SELECT datahora, tvoc FROM leituraptqa
         WHERE datahora BETWEEN '$inicio' AND '$fim'
-        AND gas > 200";
+        AND tvoc > 200";
 
 $res = $conn->query($sql);
 

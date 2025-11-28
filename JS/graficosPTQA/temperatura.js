@@ -12,7 +12,7 @@ fetch(`../PHP/consultasPTQA/temperatura.php?inicio=${inicio}&fim=${fim}`)
             labels: dados.map(x => x.datahora),
             datasets: [{
                 label: "Temperatura Interna (°C)",
-                data: dados.map(x => x.ti),
+                data: dados.map(x => x.temperatura),
                 borderWidth: 2
             }]
         }

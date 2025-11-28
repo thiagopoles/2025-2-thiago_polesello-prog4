@@ -12,7 +12,7 @@ fetch(`../PHP/consultasPTQA/gases.php?inicio=${inicio}&fim=${fim}`)
             labels: dados.map(x => x.datahora),
             datasets: [{
                 label: "Gases Voláteis (ppb)",
-                data: dados.map(x => x.gas),
+                data: dados.map(x => x.tvoc),
                 borderWidth: 1
             }]
         }
