@@ -353,7 +353,7 @@ section ol {
 }
 
 .containerCaixaDePesquisa {
-  width: 350px;
+  width: 700px;
   margin: 40px auto;
   padding: 25px;
   border: 1px solid #ddd;
@@ -376,6 +376,7 @@ section ol {
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 15px;
+  text-align: center;
 }
 
 #btnPesquisar {
