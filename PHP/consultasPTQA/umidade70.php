@@ -16,3 +16,4 @@ $dados = [];
 while($r = $res->fetch_assoc()) $dados[] = $r;
 
 echo json_encode($dados);
+?>
