@@ -95,14 +95,22 @@
         </div>
       </section>
 
-      <div class="graficoArea">
-        <canvas id="grafico"></canvas>
+      <!-- ✅ CORREÇÃO AQUI: mudar id para "graficoContainer" -->
+      <div class="graficoArea" id="graficoContainer">
+        <!-- O canvas será criado dinamicamente aqui -->
       </div>
     </main>
 
     <footer>
       <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
     </footer>
+
+    <!-- ✅ Ordem CORRETA: gráficos primeiro, loader depois -->
+    <script src="../JS/graficosMABEL/he.js"></script>
+    <script src="../JS/graficosMABEL/hi.js"></script>
+    <script src="../JS/graficosMABEL/ninho.js"></script>
+    <script src="../JS/graficosMABEL/te.js"></script>
+    <script src="../JS/graficosMABEL/ti.js"></script>
 
     <script src="../JS/graficosMABEL/loaderMABEL.js"></script>
   </body>
