@@ -397,15 +397,20 @@ section ol {
   background: #2e9e43;
 }
 
-.graficoArea {
-  width: 80%;
-  margin: 0 auto;
-  padding: 40px;
-}
-
 /* Mensagem de erro */
 #pErro {
   color: red;
   font-size: 14px;
   margin-top: 10px;
+}
+
+.graficoArea {
+  width: 1200px;   /* AUMENTA A LARGURA */
+  height: 600px;   /* AUMENTA A ALTURA */
+  margin: 30px auto;
+}
+
+#grafico {
+  width: 100% !important;   /* CANVAS ACOMPANHA O CONTAINER */
+  height: 100% !important;
 }
