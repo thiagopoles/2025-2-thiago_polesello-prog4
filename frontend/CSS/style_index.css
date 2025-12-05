@@ -122,11 +122,9 @@ hr {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* quebra linha em telas menores */
   gap: 40px;
   padding: 20px;
   background-color: #f5f5f5;
-  /* cor de fundo suave */
   border-radius: 20px;
   margin-top: 20px;
 }
@@ -311,23 +309,6 @@ footer {
 
 /* ----------------------------------------------------------------------------------------------------- */
 /* GRÁFICOS */
-#graficoPTQACO2 {
-  width: 80%;
-  max-width: 800px;
-  height: 400px;
-  background-color: #f4f4f9;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  padding: 15px;
-}
-
-/* Estilo para o canvas dentro do gráfico */
-#graficoPTQACO2 {
-  display: block;
-  margin: 0 auto;
-}
-
 .titulo-grafico {
   font-size: 1.8rem;
   color: #2c5530;
@@ -338,6 +319,16 @@ footer {
   letter-spacing: 2px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+.graficoArea {
+  width: 87.5%;
+  margin: 45px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.12);
+}
+
 
 @media (max-width: 650px) {
   #chart {
@@ -361,11 +352,11 @@ footer {
   align-items: center;
 
   background: #ffffff;
-  padding: 15px 25px;
+  padding: 18px 25px;
   border-radius: 15px;
 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 }
 
 .filter-box label {
