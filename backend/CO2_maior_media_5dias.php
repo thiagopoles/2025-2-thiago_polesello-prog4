@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura AVG(eco2) AS 5dias_com_maior_media_co2 
+$sql = "SELECT dataleitura, horaleitura, AVG(eco2) AS media_co2
 FROM leituraptqa
 WHERE EXTRACT(MONTH FROM dataleitura) = :mes
 GROUP BY dataleitura

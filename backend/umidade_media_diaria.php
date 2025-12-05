@@ -18,7 +18,8 @@ $sql = "SELECT dataleitura, horaleitura, AVG(umidade) AS umidade_media
 FROM leituraptqa
 WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
 GROUP BY dataleitura
-ORDER BY dataleitura ASC";
+ORDER BY dataleitura ASC;";
+
 
 $stmt = $conecta->prepare($sql); 
 $stmt->execute([
