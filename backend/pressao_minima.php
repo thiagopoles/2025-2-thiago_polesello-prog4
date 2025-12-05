@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, MIN(pressao) AS pressao minima
+$sql = "SELECT dataleitura, horaleitura, MIN(pressao) AS pressao_minima
 FROM leituraptqa
 WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
 GROUP BY dataleitura

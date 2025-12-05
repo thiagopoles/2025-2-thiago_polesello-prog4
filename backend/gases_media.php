@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, AVG(gases_volateis) AS nivel_medio_gases
+$sql = "SELECT dataleitura, horaleitura, AVG(gases_volateis) AS gases_media
 FROM leituraptqa
 WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
 AND indice_qualidade_ar IS NOT NULL

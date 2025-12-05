@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, MAX(eco2) AS maxima concentracao co2
+$sql = "SELECT dataleitura, horaleitura, MAX(eco2) AS maxima_concentracao_co2
 FROM leituraptqa
 WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
 ORDER BY dataleitura, horaleitura ASC";

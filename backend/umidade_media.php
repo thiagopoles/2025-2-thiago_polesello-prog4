@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, AVG(umidade) AS umidade media
+$sql = "SELECT dataleitura, horaleitura, AVG(umidade) AS umidade_media
 FROM leituraptqa
 WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
 GROUP BY dataleitura

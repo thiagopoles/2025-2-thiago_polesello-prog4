@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, AVG(temperatura) AS temperatura media
+$sql = "SELECT dataleitura, horaleitura, AVG(temperatura) AS temperatura_media
 FROM leituraptqa
 WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
 ORDER BY dataleitura, horaleitura ASC";
