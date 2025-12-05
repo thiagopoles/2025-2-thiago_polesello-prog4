@@ -14,11 +14,11 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT DATE(datainclusao) AS data, horainclusao, AVG(hi) AS umidade_interna_media_diaria
+$sql = "SELECT datainclusao, AVG(hi) AS umidade_interna_media_diaria
 FROM leituramabel
 WHERE datainclusao BETWEEN :dataInicial AND :dataFinal
-GROUP BY DATE (datainclusao)
-ORDER BY datainclusao, horainclusao ASC";
+GROUP BY datainclusao
+ORDER BY datainclusao, horainclusao ASC;";
 
 
 $stmt = $conecta->prepare($sql); 
