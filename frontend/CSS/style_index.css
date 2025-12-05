@@ -405,6 +405,7 @@ section ol {
 
 /* Mensagem de erro */
 #pErro {
+  text-align: center;
   color: red;
   font-size: 14px;
   margin-top: 10px;
