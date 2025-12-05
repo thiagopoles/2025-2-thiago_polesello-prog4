@@ -3,10 +3,10 @@ header('Content-Type: application/json');
 $conn = new mysqli("localhost","root","","mabel_ptqa_heitor_isabely_thiago");
 
 $inicio = $_GET['inicio'];
-$fim = $_GET['fim'];
+$fim = $_GET[:dataFinal];
 
 $sql = "SELECT dataleitura, horaleitura, eco2 FROM leituraptqa
-        WHERE datahora BETWEEN '$inicio' AND '$fim'
+        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
         AND eco2 > 1000";
 
 $res = $conn->query($sql);

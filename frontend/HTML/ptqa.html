@@ -58,7 +58,7 @@
         <div class="containerCaixaDePesquisa">
           <div class="form-box">
             <label>Tipo de gráfico:</label>
-            <select id="selecionarGrafico">
+            <select id="selectPTQA">
               <option value="">Selecione...</option>
               <option value="temperatura">Temperatura</option>
               <option value="aqi4">AQI ≥ 4</option>
@@ -74,10 +74,17 @@
             <label>Data final:</label>
             <input type="date" id="dataFinal" />
 
+            <label>Filtro de Frequência</label>
+            <input type="number" id="filtroFrequencia" value="20"/>
+
             <button id="btnPesquisar">Pesquisar</button>
+
+            <p id="pErro"></p>
           </div>
         </div>
       </section>
+
+      <p id="pErro"></p>
 
       <div class="graficoArea">
         <canvas id="grafico"></canvas>
@@ -88,6 +95,7 @@
       <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
     </footer>
 
-    <script src="../JS/graficosPTQA/loaderPTQA.js"></script>
+    <script src="../JS/scriptGraficos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
   </body>
 </html>

@@ -3,12 +3,12 @@ header('Content-Type: application/json');
 $conn = new mysqli("localhost", "root", "", "mabel_ptqa_heitor_isabely_thiago");
 
 $inicio = $_GET['inicio'];
-$fim = $_GET['fim'];
+$fim = $_GET[:dataFinal];
 
-// Consulta SQL para pegar a datahora e a temperatura interna (campo 'ti')
-$sql = "SELECT datainclusao, horainclusao, ti FROM leituramabel
-        WHERE datahora BETWEEN '$inicio' AND '$fim'
-        ORDER BY datahora";
+// Consulta SQL para pegar a dataleitura e a temperatura do ninho (campo 'ninho')
+$sql = "SELECT datainclusao, horainclusao, ninho FROM leituramabel
+        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
+        ORDER BY dataleitura";
 
 $res = $conn->query($sql);
 
