@@ -14,10 +14,11 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, umidade FROM leituraptqa
-        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
-        AND umidade > 70
-        ORDER BY dataleitura, horaleitura ASC";
+$sql = "SELECT dataleitura, horaleitura, umidade
+FROM leituraptqa
+WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
+AND umidade > 70
+ORDER BY dataleitura, horaleitura ASC";
 
 
 $stmt = $conecta->prepare($sql); 
@@ -33,8 +34,8 @@ $dadosFiltrados = [];
 // --- LOOP DE SAMPLING ---
 foreach ($resultado as $index => $row) {
     if ($index % $frequencia == 0) {
-        if (!empty($row['dataleitura'])) {
-            $row['dataleitura'] = date("d/m/Y", strtotime($row['dataleitura']));
+        if (!empty($row['datainclusao'])) {
+            $row['datainclusao'] = date("d/m/Y", strtotime($row['datainclusao']));
         }
         $dadosFiltrados[] = $row;
     }

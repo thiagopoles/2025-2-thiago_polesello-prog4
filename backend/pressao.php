@@ -1,18 +1,45 @@
 <?php
-header('Content-Type: application/json');
-$conn = new mysqli("localhost","root","","mabel_ptqa_heitor_isabely_thiago");
+header('Content-Type: application/json; charset=utf-8');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$inicio = $_GET['inicio'];
-$fim = $_GET[:dataFinal];
+include 'conecta_mysql.php'; // Inclui a conexão com o banco de dados
 
-$sql = "SELECT dataleitura, horaleitura, pressao FROM leituraptqa
-        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
-        AND pressao < 1000";
+$dataInicial = $_GET['dataInicial'] ?? null;
+$dataFinal = $_GET['dataFinal'] ?? null;
+$frequencia = $_GET['freq'] ?? null; 
 
-$res = $conn->query($sql);
+if (!$dataInicial || !$dataFinal) {
+echo json_encode(["erro" => "Datas não enviadas"]);
+exit;
+}
 
-$dados = [];
-while($r = $res->fetch_assoc()) $dados[] = $r;
+$sql = "SELECT dataleitura, horaleitura, pressao
+FROM leituraptqa
+WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
+AND pressao < 1000
+ORDER BY dataleitura, horaleitura ASC";
 
-echo json_encode($dados);
+
+$stmt = $conecta->prepare($sql); 
+$stmt->execute([
+':dataInicial' => $dataInicial,
+':dataFinal' => $dataFinal
+]);
+
+$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$dadosFiltrados = [];
+
+// --- LOOP DE SAMPLING ---
+foreach ($resultado as $index => $row) {
+    if ($index % $frequencia == 0) {
+        if (!empty($row['datainclusao'])) {
+            $row['datainclusao'] = date("d/m/Y", strtotime($row['datainclusao']));
+        }
+        $dadosFiltrados[] = $row;
+    }
+}
+
+echo json_encode($dadosFiltrados);
 ?>
