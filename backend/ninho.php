@@ -1,21 +1,44 @@
 <?php
-header('Content-Type: application/json');
-$conn = new mysqli("localhost", "root", "", "mabel_ptqa_heitor_isabely_thiago");
+header('Content-Type: application/json; charset=utf-8');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$inicio = $_GET['inicio'];
-$fim = $_GET[:dataFinal];
+include 'conecta_mysql.php'; // Inclui a conexão com o banco de dados
 
-// Consulta SQL para pegar a dataleitura e a temperatura do ninho (campo 'ninho')
-$sql = "SELECT datainclusao, horainclusao, ninho FROM leituramabel
-        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
-        ORDER BY dataleitura";
+$dataInicial = $_GET['dataInicial'] ?? null;
+$dataFinal = $_GET['dataFinal'] ?? null;
+$frequencia = $_GET['freq'] ?? null; 
 
-$res = $conn->query($sql);
-
-$dados = [];
-while ($row = $res->fetch_assoc()) {
-    $dados[] = $row;
+if (!$dataInicial || !$dataFinal) {
+echo json_encode(["erro" => "Datas não enviadas"]);
+exit;
 }
 
-echo json_encode($dados);
+$sql = "SELECT datainclusao, horainclusao, ninho
+FROM leituramabel
+WHERE datainclusao BETWEEN :dataInicial AND :dataFinal
+ORDER BY datainclusao, horainclusao ASC";
+
+
+$stmt = $conecta->prepare($sql); 
+$stmt->execute([
+':dataInicial' => $dataInicial,
+':dataFinal' => $dataFinal
+]);
+
+$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$dadosFiltrados = [];
+
+// --- LOOP DE SAMPLING ---
+foreach ($resultado as $index => $row) {
+    if ($index % $frequencia == 0) {
+        if (!empty($row['datainclusao'])) {
+            $row['datainclusao'] = date("d/m/Y", strtotime($row['datainclusao']));
+        }
+        $dadosFiltrados[] = $row;
+    }
+}
+
+echo json_encode($dadosFiltrados);
 ?>
