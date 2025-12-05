@@ -17,6 +17,47 @@ body {
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
+/* INDEX */
+main {
+  margin-top: 70px;
+  padding: 0;
+}
+
+.imgIndex {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.imgIndex::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.container img {
+  height: auto;
+  display: block;
+  width: 100%;
+}
+
+.texto-sobreposto {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  text-align: center;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
 /* MENU */
 header {
   display: flex;
@@ -71,48 +112,71 @@ hr {
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
-/* INDEX */
-main {
-  margin-top: 70px;
-  padding: 0;
+/* SOBRE NÓS */
+#footerFixo {
+  position: fixed;
 }
 
-.imgIndex {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.imgIndex::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.container img {
-  height: auto;
-  display: block;
-  width: 100%;
-}
-
-.texto-sobreposto {
-  position: absolute;
+/* Contêiner que organiza os cards lado a lado */
+.profile-container {
   display: flex;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #ffffff;
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  z-index: 2;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* quebra linha em telas menores */
+  gap: 40px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  /* cor de fundo suave */
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 420px;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem de perfil */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: none;
+}
+
+/* Texto */
+.profile-name {
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.profile-title {
+  font-size: 1.1rem;
+  color: #777;
+  margin: 0 0 15px 0;
+}
+
+.profile-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 25px;
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
-/*quadrados com resumo dos projetos*/
+/*Containers com resumo dos projetos*/
 .textoIndex {
   padding: 10px;
   margin: 5px;
@@ -191,28 +255,16 @@ main {
   justify-content: center;
   margin-top: 30px;
   margin-bottom: 30px;
-  flex-wrap: wrap; /* quebra linha em telas menores */
+  flex-wrap: wrap;
+  /* quebra linha em telas menores */
   gap: 60px;
   padding: 20px;
-  background-color: white; /* cor de fundo suave */
+  background-color: white;
+  /* cor de fundo suave */
   box-shadow: 5px 5px 10px gainsboro;
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
-/* RODAPÉ */
-footer {
-  background-color: white;
-  color: black;
-  text-align: center;
-  padding: 20px;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* ----------------------------------------------------------------------------------------------------- */
-
 /*MABEL E PTQA*/
 section p {
   max-width: 900px;
@@ -244,87 +296,36 @@ section ol {
   margin-top: 30px;
 }
 
-/* SOBRE NÓS */
-#footerFixo {
-  position: fixed;
-}
-
-/* Contêiner que organiza os cards lado a lado */
-.profile-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* quebra linha em telas menores */
-  gap: 40px;
-  padding: 20px;
-  background-color: #f5f5f5; /* cor de fundo suave */
-  border-radius: 20px;
-  margin-top: 20px;
-}
-
-.profile-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 420px;
+/* ----------------------------------------------------------------------------------------------------- */
+/* RODAPÉ */
+footer {
+  background-color: white;
+  color: black;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.profile-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Imagem de perfil */
-.profile-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: none;
-}
-
-/* Texto */
-.profile-name {
-  font-size: 1.8rem;
-  margin: 0 0 10px 0;
-  color: #333;
-}
-
-.profile-title {
-  font-size: 1.1rem;
-  color: #777;
-  margin: 0 0 15px 0;
-}
-
-.profile-description {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 25px;
+  padding: 20px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
-
 /* GRÁFICOS */
-
-/* Estilo para o container do gráfico */
 #graficoPTQACO2 {
-  width: 80%; /* Faz o gráfico ficar 80% da largura do seu container */
-  max-width: 800px; /* Limita a largura máxima */
-  height: 400px; /* Ajusta a altura do gráfico */
-  background-color: #f4f4f9; /* Cor de fundo suave para destacar o gráfico */
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao redor do gráfico */
-  margin: 20px auto; /* Centraliza o gráfico na página */
-  padding: 15px; /* Adiciona um pequeno preenchimento ao redor do gráfico */
+  width: 80%;
+  max-width: 800px;
+  height: 400px;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 15px;
 }
 
 /* Estilo para o canvas dentro do gráfico */
 #graficoPTQACO2 {
-  display: block; /* Garante que o gráfico ocupe todo o espaço dentro do seu container */
-  margin: 0 auto; /* Centraliza o gráfico dentro do seu container */
+  display: block;
+  margin: 0 auto;
 }
 
 .titulo-grafico {
@@ -345,8 +346,116 @@ section ol {
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
+/* Caixa Para Pesquisa */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* CAIXA DO FILTRO  */
+.filter-box {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 15px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+}
+
+.filter-box label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #444;
+}
+
+.filter-box input[type="date"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.filter-box input[type="date"]:focus {
+  border-color: #00995d;
+  box-shadow: 0 0 5px rgba(0, 153, 93, 0.5);
+  outline: none;
+}
+
+.filter-box button {
+  background: #00995d;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter-box button:hover {
+  background: #007744;
+}
+
+/*  CONTAINER DO GRÁFICO  */
+.chart-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.chart-card h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/*  RESPONSIVIDADE  */
+@media (max-width: 700px) {
+  .filter-box {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .filter-box label {
+    font-size: 14px;
+  }
+
+  .filter-box input[type="date"] {
+    width: 100%;
+  }
+
+  .filter-box button {
+    width: 100%;
+  }
+}
+
+/* Mensagem de erro */
+#pErro {
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 10px;
+  color: #e63946;
+  font-weight: bold;
+  align-items: center;
+}
+
+
+
+
+
 /* Container Para Pesquisa */
-.tituloCaixaDePesquisa {
+/* .tituloCaixaDePesquisa {
   text-align: center;
   margin-top: 40px;
   font-size: 28px;
@@ -401,12 +510,4 @@ section ol {
   width: 80%;
   margin: 0 auto;
   padding: 40px;
-}
-
-/* Mensagem de erro */
-#pErro {
-  text-align: center;
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
 }

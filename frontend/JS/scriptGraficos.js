@@ -44,8 +44,8 @@ function chamarBackend(event) {
             return;
         }
         url =
-        `http://localhost/2025-2-thiago_polesello-prog4/backend/${consultaPTQA}.php?` +
-        `dataInicial=${inicio}&dataFinal=${fim}&freq=${frequencia}`;
+            `http://localhost/2025-2-thiago_polesello-prog4/backend/${consultaPTQA}.php?` +
+            `dataInicial=${inicio}&dataFinal=${fim}&freq=${frequencia}`;
     }
 
     if (selectMabel) {
@@ -55,8 +55,8 @@ function chamarBackend(event) {
             return;
         }
         url =
-        `http://localhost/2025-2-thiago_polesello-prog4/backend/${consultaMabel}.php?` +
-        `dataInicial=${inicio}&dataFinal=${fim}&freq=${frequencia}`;
+            `http://localhost/2025-2-thiago_polesello-prog4/backend/${consultaMabel}.php?` +
+            `dataInicial=${inicio}&dataFinal=${fim}&freq=${frequencia}`;
     }
 
     console.log("URL construída:", url);
