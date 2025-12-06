@@ -14,12 +14,11 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, AVG(eco2) AS media_co2
-FROM leituraptqa
-WHERE EXTRACT(MONTH FROM dataleitura) = :mes
-GROUP BY dataleitura
-ORDER BY media_co2 DESC
-LIMIT 5";
+$sql = "SELECT dataleitura, horaleitura, ROUND(AVG(eco2),2) AS media_co2
+        FROM leituraptqa
+        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
+        GROUP BY dataleitura, horaleitura
+        ORDER BY dataleitura, horaleitura ASC";
 
 
 $stmt = $conecta->prepare($sql); 
