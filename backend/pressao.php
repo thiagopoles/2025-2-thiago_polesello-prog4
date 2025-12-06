@@ -15,10 +15,9 @@ exit;
 }
 
 $sql = "SELECT dataleitura, horaleitura, pressao
-FROM leituraptqa
-WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
-AND pressao < 1000
-ORDER BY dataleitura, horaleitura ASC";
+        FROM leituraptqa
+        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
+        ORDER BY dataleitura, horaleitura ASC";
 
 
 $stmt = $conecta->prepare($sql); 

@@ -15,10 +15,9 @@ exit;
 }
 
 $sql = "SELECT dataleitura, horaleitura, tvoc
-FROM leituraptqa
-WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
-AND tvoc > 200
-ORDER BY dataleitura, horaleitura ASC";
+        FROM leituraptqa
+        WHERE tvoc >= 200 AND dataleitura BETWEEN :dataInicial AND :dataFinal
+        ORDER BY dataleitura, horaleitura ASC";
 
 
 $stmt = $conecta->prepare($sql); 

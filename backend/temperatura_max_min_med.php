@@ -14,10 +14,13 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, MAX(temperatura) AS temperatura_maxima, MIN(temperatura) AS temperatura_minima, AVG(temperatura) AS temperatura_media
-FROM leituraptqa
-WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
-ORDER BY dataleitura, horaleitura ASC";
+$sql = "SELECT dataleitura, horaleitura,
+MAX(temperatura) AS max_temp,
+               MIN(temperatura) AS min_temp,
+               ROUND(AVG(temperatura),2) AS media_temp
+        FROM leituraptqa
+        WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
+        ORDER BY dataleitura, horaleitura ASC";
 
 
 $stmt = $conecta->prepare($sql); 
