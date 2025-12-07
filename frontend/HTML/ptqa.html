@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PTQA — IFSC Chapecó</title>
+
+  <link rel="stylesheet" href="../CSS/style_index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header id="cabecalho">
+    <figure>
+      <img src="../IMG/IFSC_horizontal_marca2015_PNG.png" alt="IFSC Logo" />
+    </figure>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mabel.html">Mabel</a></li>
+        <li><a href="ptqa.html">PTQA</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conteudoForaDoMenu">
+    <section>
+      <h2 id="titulo">Projeto PTQA</h2>
+    </section>
+
+    <section>
+      <p>
+        O projeto PTQA (Projeto de Teste Qualitativo do Ar) tem como objetivo
+        testar a qualidade do ar que as pessoas que frequentam o IFSC Campus
+        Chapecó respiram.
+      </p>
+    </section>
+
+    <section>
+      <p id="fases">
+        As medições são feitas através de um Arduino com os seguintes
+        componentes:
+      </p>
+      <ol>
+        <li>Placa NodeMCU Esp8266;</li>
+        <li>sensor ccs81;</li>
+        <li>sensor BMP280.</li>
+      </ol>
+    </section>
+
+    <hr />
+
+    <section>
+      <h1 class="titulo-grafico">-Estatísticas da Qualidade Do Ar-</h1>
+
+      <div class="page-container">
+        <div class="filter-box">
+          <label>Tipo de gráfico:</label>
+          <select id="selectPTQA">
+            <option value="">Selecione...</option>
+            <option value="temperatura">Temperatura</option>
+            <option value="temperatura_media">Temperatura média</option>
+            <option value="temperatura_max_min_med">Temperatura máx, mín e méd</option> <!-- mínimo está dando erro -->
+            <option value="aqi4">AQI ≥ 4</option>
+            <option value="aqi_media">AQI média</option> <!-- está dando erro, não aparece o gráfico -->
+            <option value="umidade70">Umidade > 70%</option>
+            <option value="umidade_media_diaria">Umidade média</option>
+            <option value="co2">CO₂ > 1000 ppm</option>
+            <option value="co2_maxima">Máxima concentração de CO2</option>
+            <option value="CO2_maior_media_5dias">5 dias com maior média de CO₂</option> <!-- acho que foi -->
+            <option value="pressao">Pressão < 1000 hPa</option>
+            <option value="pressao_minima">Pressão mínima</option>
+            <option value="gases">Gases > 200 ppb</option> 
+            <option value="gases_media">Média dos gases</option> 
+          </select>
+
+          <label>Data inicial:</label>
+          <input type="date" id="dataInicial" />
+
+          <label>Data final:</label>
+          <input type="date" id="dataFinal" />
+
+          <label>Filtro de Frequência</label>
+          <input type="number" id="filtroFrequencia" value="10" />
+
+          <button id="btnPesquisar">Pesquisar</button>
+
+        </div>
+      </div>
+    </section>
+
+    <p id="pErro"></p>
+
+    <div class="graficoArea">
+      <canvas id="grafico"></canvas>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 — Heitor G., Isabely T. e Thiago P.</p>
+  </footer>
+
+  <script src="../JS/scriptGraficos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>
