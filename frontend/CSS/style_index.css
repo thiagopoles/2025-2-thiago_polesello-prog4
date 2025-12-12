@@ -394,8 +394,7 @@ footer {
   background: #007744;
 }
 
-<<<<<<< HEAD:CSS/style_index.css
-=======
+
 /*  CONTAINER DO GRÁFICO  */
 .chart-card {
   background: #ffffff;
@@ -433,15 +432,6 @@ footer {
   }
 }
 
->>>>>>> f73e4d860b1288173fba52d4e9a9f2d381601838:frontend/CSS/style_index.css
-/* Mensagem de erro */
-#pErro {
-  flex-basis: 100%;
-  text-align: center;
-  margin-top: 10px;
-<<<<<<< HEAD:CSS/style_index.css
-}
-
 .graficoArea {
   width: 1200px;   /* AUMENTA A LARGURA */
   height: 600px;   /* AUMENTA A ALTURA */
@@ -452,9 +442,11 @@ footer {
   width: 100% !important;   /* CANVAS ACOMPANHA O CONTAINER */
   height: 100% !important;
 }
-=======
+
+/* Mensagem de erro */
+#pErro {
   color: #e63946;
-  font-weight: bold;
-  align-items: center;
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 10px;
 }
->>>>>>> f73e4d860b1288173fba52d4e9a9f2d381601838:frontend/CSS/style_index.css
