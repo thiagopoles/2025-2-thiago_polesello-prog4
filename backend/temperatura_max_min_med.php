@@ -17,7 +17,7 @@ exit;
 $sql = "SELECT dataleitura, horaleitura,
                MAX(temperatura) AS temperatura_max,
                MIN(temperatura) AS temperatura_min,
-               ROUND(AVG(temperatura),2) AS temperatura_med
+               ROUND(AVG(temperatura),2) AS temperatura_media
         FROM leituraptqa
         WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
         ORDER BY dataleitura, horaleitura ASC";
