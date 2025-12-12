@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT datainclusao, horainclusao, ninho
+$sql = "SELECT datainclusao, horainclusao, ninho AS temperatura_do_ninho
 FROM leituramabel
 WHERE datainclusao BETWEEN :dataInicial AND :dataFinal
 ORDER BY datainclusao, horainclusao ASC";

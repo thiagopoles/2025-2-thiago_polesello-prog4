@@ -14,7 +14,7 @@ echo json_encode(["erro" => "Datas não enviadas"]);
 exit;
 }
 
-$sql = "SELECT dataleitura, horaleitura, aqi AS aqi_otima_qualidade
+$sql = "SELECT dataleitura, horaleitura, aqi AS Otima_Qualidade_do_Ar
 FROM leituraptqa
 WHERE dataleitura BETWEEN :dataInicial AND :dataFinal
 AND aqi = 1
